@@ -8,12 +8,18 @@
 [cc-by-nc-nd-image]: https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png
 [cc-by-nc-nd-shield]: https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg
 
+# GitHub Badges
+
+![License](https://img.shields.io/static/v1?label=License&message=CC-BY-NC-ND-4.0&color=green)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+[![Automatic Dependency Submission](https://github.com/lyes-sefiane/udem-java-programming-and-applications/actions/workflows/dependency-graph/auto-submission/badge.svg)](https://github.com/lyes-sefiane/udem-java-programming-and-applications/actions/workflows/dependency-graph/auto-submission)
+[![CodeQL Advanced](https://github.com/lyes-sefiane/udem-java-programming-and-applications/actions/workflows/codeql.yml/badge.svg)](https://github.com/lyes-sefiane/udem-java-programming-and-applications/actions/workflows/codeql.yml)
+[![Java CI with Maven](https://github.com/lyes-sefiane/udem-java-programming-and-applications/actions/workflows/maven.yml/badge.svg)](https://github.com/lyes-sefiane/udem-java-programming-and-applications/actions/workflows/maven.yml)
 
 # Requirements
 
 - [x] Java 17.x.y
 - [x] Maven 3.x.y
-
 
 
 # Modules
