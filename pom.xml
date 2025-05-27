@@ -11,5 +11,6 @@
   </properties>
   <modules>
     <module>TP1_1170_H17</module>
+    <module>TP2_1170_H17</module>
   </modules>
 </project>

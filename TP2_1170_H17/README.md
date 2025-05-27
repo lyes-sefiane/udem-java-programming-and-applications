@@ -12,15 +12,13 @@
 # Requirements
 
 - [x] Java 17.x.y
+
 - [x] Maven 3.x.y
 
 
+# TP
 
-# Modules
-
-- [TP1-1170-H17](https://github.com/lyes-sefiane/udem-java-programming-and-applications/tree/main/TP1_1170_H17)
-- [TP2-1170-H17](https://github.com/lyes-sefiane/udem-java-programming-and-applications/tree/main/TP2_1170_H17)
-
+- [TP2-1170-H17](src/main/resources/TP2_1170_H17.pdf)
 
 # Contributing
 
