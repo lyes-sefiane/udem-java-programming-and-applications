@@ -30,6 +30,7 @@
 # Modules
 
 - [WEEK_1_2_1170_H17](https://github.com/lyes-sefiane/udem-java-programming-and-applications/tree/main/WEEK_1_2_1170_H17)
+- [WEEK_3_4_1170_H17](https://github.com/lyes-sefiane/udem-java-programming-and-applications/tree/main/WEEK_3_4_1170_H17)
 - [TP1-1170-H17](https://github.com/lyes-sefiane/udem-java-programming-and-applications/tree/main/TP1_1170_H17)
 - [TP2-1170-H17](https://github.com/lyes-sefiane/udem-java-programming-and-applications/tree/main/TP2_1170_H17)
 - [TP3-1170-H17](https://github.com/lyes-sefiane/udem-java-programming-and-applications/tree/main/TP3_1170_H17)

@@ -6,13 +6,30 @@
   <name>udem-java-programming-and-applications</name>
   <url>http://maven.apache.org</url>
   <packaging>pom</packaging>
+
   <properties>
     <java.version>17</java.version>
+    <log4j.version>2.24.3</log4j.version>
   </properties>
+
   <modules>
     <module>TP1_1170_H17</module>
     <module>TP2_1170_H17</module>
     <module>TP3_1170_H17</module>
     <module>WEEK_1_2_1170_H17</module>
+    <module>WEEK_3_4_1170_H17</module>
   </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+  </dependencies>
 </project>
