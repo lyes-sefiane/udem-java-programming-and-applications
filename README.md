@@ -1,7 +1,7 @@
-<h1 align="center">IFT 1170 : Java Programming and Applications at University of Montreal</h1>
+<h1 align="center">IFT 1170 : Java Programming and Applications</h1>
 
 <p align="center">
-    <img src="images/universite-de-montreal-logo.png" width="37%"/>
+    <img src="https://raw.githubusercontent.com/lyes-sefiane/udem-java-programming-and-applications/refs/heads/main/images/universite-de-montreal-logo.png" width="37%"/>
 </p>
 
 
