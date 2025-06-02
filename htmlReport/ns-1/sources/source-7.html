@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Coverage Report > Numero_A</title>
+    <style type="text/css">
+        @import "../../css/coverage.css";
+        @import "../../css/idea.min.css";
+    </style>
+    <script type="text/javascript" src="../../js/highlight.min.js"></script>
+    <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+    <div class="breadCrumbs">
+        Current scope: <a href="../../../index.html">all classes</a>
+        <span class="separator">|</span>
+        <a href="../index.html">io.github.lyes_sefiane</a>
+    </div>
+
+    <h1>Coverage Summary for Class: Numero_A (io.github.lyes_sefiane)</h1>
+
+    <table class="coverageStats">
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Class, %
+            </th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Branch, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">Numero_A</td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/1)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/6)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/20)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/48)
+  </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package io.github.lyes_sefiane;
+&nbsp;
+&nbsp;
+&nbsp;/**
+&nbsp; * Matricule UdeM : 20090833
+&nbsp; * @author Lyes SEFIANE
+&nbsp; * IFT 1170
+&nbsp; * Session : Hiver 2017
+&nbsp; * Java et applications
+&nbsp; * lyes.sefiane@umontreal.ca
+&nbsp; * lyes.sefiane@gmail.com
+&nbsp; */
+&nbsp;
+<b class="nc">&nbsp;public class Numero_A {</b>
+&nbsp;    /**
+&nbsp;     * Permet de compter et retourner
+&nbsp;     * le nombre d&#39;occurence d&#39;un element
+&nbsp;     * dans un tableau.
+&nbsp;     */
+&nbsp;    public static int compter(char car, char[] poste, int[] nbCafe, int nbEmp) {
+<b class="nc">&nbsp;        int n =0;</b>
+<b class="nc">&nbsp;        for (int i = 0; i &lt; nbEmp; i++){</b>
+<b class="nc">&nbsp;            if (poste[i] == car)</b>
+<b class="nc">&nbsp;                n++;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return n;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Permet de calculer la plus grande valeur d&#39;un tableau
+&nbsp;     */
+&nbsp;    public static int consoMax(char[] poste, int[] nbCafe, int nbEmp) {
+<b class="nc">&nbsp;        int maxCafe = Integer.MIN_VALUE;</b>
+<b class="nc">&nbsp;        for (int i = 0 ; i &lt; nbEmp ; i++) {</b>
+&nbsp;
+<b class="nc">&nbsp;            if ( nbCafe[i] &gt; maxCafe )</b>
+<b class="nc">&nbsp;                maxCafe = nbCafe[i];</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return maxCafe;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Permet de calculer la plus petite valeur
+&nbsp;     * d&#39;un tableau, parmi un groupe précis .
+&nbsp;     * Exemple : La consommation minimale de cafe des programmeurs
+&nbsp;     */
+&nbsp;    public static int consoMin(char car, char[] poste, int[] nbCafe, int nbEmp) {
+<b class="nc">&nbsp;        int minCafe = Integer.MAX_VALUE;</b>
+&nbsp;
+<b class="nc">&nbsp;        for( int i = 0; i &lt; nbEmp; i++){</b>
+<b class="nc">&nbsp;            if ( poste[i] == car ){</b>
+<b class="nc">&nbsp;                if (nbCafe[i] &lt; minCafe)</b>
+<b class="nc">&nbsp;                    minCafe = nbCafe[i];</b>
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        return minCafe;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Permet de calculer une moyenne d&#39;un groupe.
+&nbsp;     * Exemple : La consommation moyenne des Analystes
+&nbsp;     */
+&nbsp;    public static void consoMoy(char car, char[] poste, int[] nbCafe,
+&nbsp;                                int nbEmp, int nbConsomateur) {
+<b class="nc">&nbsp;        double moyenne = 0; double sommeCafeCar = 0;</b>
+&nbsp;
+<b class="nc">&nbsp;        if (nbConsomateur == 0){</b>
+<b class="nc">&nbsp;            System.out.printf(&quot; Le poste de travail &#39;%c&#39; existe pas &quot;, car);</b>
+&nbsp;        }
+&nbsp;        else {
+<b class="nc">&nbsp;            for (int i = 0; i &lt; nbEmp; i++){</b>
+<b class="nc">&nbsp;                if(poste[i] == car)</b>
+<b class="nc">&nbsp;                    sommeCafeCar = sommeCafeCar + nbCafe[i];</b>
+&nbsp;            }
+&nbsp;
+&nbsp;            /* -0.5 pour la division */
+<b class="nc">&nbsp;            moyenne = sommeCafeCar / nbConsomateur;</b>
+<b class="nc">&nbsp;            System.out.printf(&quot; %.1f\n&quot;, moyenne);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        char [] poste = {&#39;P&#39;, &#39;P&#39;, &#39;O&#39;, &#39;A&#39;, &#39;P&#39;, &#39;A&#39;, &#39;A&#39;, &#39;P&#39;};</b>
+<b class="nc">&nbsp;        int [] nbCafe = {2, 1, 4, 0, 5, 2, 3, 1};</b>
+<b class="nc">&nbsp;        int nbEmp = poste.length;</b>
+&nbsp;        int  nbProgrammeurs, nbAnalystes, nbOperateurs;
+&nbsp;
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t----------------------------&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t- Exercice numéro A du TP1 -&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t----------------------------&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        nbProgrammeurs = compter (&#39;P&#39;,poste, nbCafe, nbEmp);</b>
+<b class="nc">&nbsp;        System.out.printf(&quot; - Il y a %s Programmeur(s) \n&quot;, nbProgrammeurs );</b>
+&nbsp;
+<b class="nc">&nbsp;        nbAnalystes = compter(&#39;A&#39;,poste, nbCafe, nbEmp);</b>
+<b class="nc">&nbsp;        System.out.printf(&quot; - Il y a %s Analyste(s) \n&quot;, nbAnalystes);</b>
+&nbsp;
+<b class="nc">&nbsp;        nbOperateurs = compter(&#39;O&#39;,poste, nbCafe, nbEmp);</b>
+<b class="nc">&nbsp;        System.out.printf(&quot; - Il y a %s Operateur(s) \n&quot;, nbOperateurs);</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot; - La consommation maximale de cafe &quot;</b>
+&nbsp;                        + &quot;de tous ces employes est : %s\n &quot;,
+<b class="nc">&nbsp;                consoMax(poste,nbCafe, nbEmp) );</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot;- La consommation minimale de cafe &quot;</b>
+&nbsp;                        + &quot;des programmeurs est : %s \n&quot;,
+<b class="nc">&nbsp;                consoMin(&#39;P&#39;,poste,nbCafe, nbEmp) );</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot; - La consommation moyenne des Analystes est   :&quot;);</b>
+<b class="nc">&nbsp;        consoMoy(&#39;A&#39;,poste,nbCafe, nbEmp, nbAnalystes);</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot; - La consommation moyenne des Opérateurs est  :&quot;);</b>
+<b class="nc">&nbsp;        consoMoy(&#39;O&#39;,poste,nbCafe, nbEmp, nbOperateurs);</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot; - La consommation moyenne des Secretaires est :&quot;);</b>
+&nbsp;        // On calcul le nombre de secretaire
+&nbsp;        // - 0.5 (je ne comprends pas son argumentation)
+&nbsp;        // Bien que cela fonctionne
+<b class="nc">&nbsp;        int nbSecretaire = compter(&#39;S&#39;,poste, nbCafe, nbEmp);</b>
+<b class="nc">&nbsp;        consoMoy(&#39;S&#39;,poste,nbCafe, nbEmp, nbSecretaire);</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;/*
+&nbsp;		----------------------------
+&nbsp;		- Exercice numéro A du TP1 -
+&nbsp;		----------------------------
+&nbsp; - Il y a 4 Programmeur(s)
+&nbsp; - Il y a 3 Analyste(s)
+&nbsp; - Il y a 1 Operateur(s)
+&nbsp; - La consommation maximale de cafe de tous ces employes est : 5
+&nbsp; - La consommation minimale de cafe des programmeurs est : 1
+&nbsp; - La consommation moyenne des Analystes est   : 1,7
+&nbsp; - La consommation moyenne des Opérateurs est  : 4,0
+&nbsp; - La consommation moyenne des Secretaires est : Le poste de travail &#39;S&#39; existe pas
+&nbsp;*/
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        var msie = false, msie9 = false;
+        /*@cc_on
+          msie = true;
+          @if (@_jscript_version >= 9)
+            msie9 = true;
+          @end
+        @*/
+
+        if (!msie || msie && msie9) {
+          hljs.highlightAll()
+          hljs.initLineNumbersOnLoad();
+        }
+    })();
+</script>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2025-05-30 13:31</div>
+</div>
+</body>
+</html>

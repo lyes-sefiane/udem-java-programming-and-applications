@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Coverage Report > Recursivite</title>
+    <style type="text/css">
+        @import "../../css/coverage.css";
+        @import "../../css/idea.min.css";
+    </style>
+    <script type="text/javascript" src="../../js/highlight.min.js"></script>
+    <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+    <div class="breadCrumbs">
+        Current scope: <a href="../../../index.html">all classes</a>
+        <span class="separator">|</span>
+        <a href="../index.html">io.github.lyes_sefiane</a>
+    </div>
+
+    <h1>Coverage Summary for Class: Recursivite (io.github.lyes_sefiane)</h1>
+
+    <table class="coverageStats">
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Class, %
+            </th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Branch, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">Recursivite</td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/1)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/4)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/4)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/17)
+  </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package io.github.lyes_sefiane;
+&nbsp;
+&nbsp;
+&nbsp;/**
+&nbsp; * Matricule UdeM : 20090833
+&nbsp; * @author Lyes SEFIANE
+&nbsp; * IFT 1170
+&nbsp; * Java et ses applications
+&nbsp; * lyes.sefiane@umontreal.ca
+&nbsp; * lyes.sefiane@gmail.com
+&nbsp; */
+&nbsp;
+<b class="nc">&nbsp;public class Recursivite {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Methode recursive
+&nbsp;     */
+&nbsp;    public static int multiplicationRecursive (int n) {
+&nbsp;
+<b class="nc">&nbsp;        if(n &lt; 10)</b>
+<b class="nc">&nbsp;            return n;</b>
+&nbsp;        else
+<b class="nc">&nbsp;            return ((n % 10) * multiplicationRecursive(n / 10));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Méthode Itérative
+&nbsp;     */
+&nbsp;    public static void multiplicationIterative(int chiffre) {
+<b class="nc">&nbsp;        int resultat = 1;</b>
+<b class="nc">&nbsp;        int n = chiffre;</b>
+&nbsp;
+<b class="nc">&nbsp;        while (n &gt; 0){</b>
+<b class="nc">&nbsp;            resultat = resultat * (n % 10);</b>
+<b class="nc">&nbsp;            n = n / 10;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;Produit des chiffres %d (Méthode itérative) est :  %d\n&quot;,</b>
+<b class="nc">&nbsp;                chiffre, resultat);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t----------------------------&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t- Exercice numéro C du TP3 -&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t----------------------------\n&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot;Produit des chiffres %d (Méthode recursive) est :  %d\n\n&quot;,</b>
+<b class="nc">&nbsp;                2345, multiplicationRecursive (2345));</b>
+&nbsp;
+<b class="nc">&nbsp;        multiplicationIterative (2345);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;}
+&nbsp;/*
+&nbsp;		----------------------------
+&nbsp;		- Exercice numéro C du TP3 -
+&nbsp;		----------------------------
+&nbsp;
+&nbsp;Produit des chiffres 2345 (Méthode recursive) est :  120
+&nbsp;
+&nbsp;Produit des chiffres 2345 (Méthode itérative) est :  120 */
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        var msie = false, msie9 = false;
+        /*@cc_on
+          msie = true;
+          @if (@_jscript_version >= 9)
+            msie9 = true;
+          @end
+        @*/
+
+        if (!msie || msie && msie9) {
+          hljs.highlightAll()
+          hljs.initLineNumbersOnLoad();
+        }
+    })();
+</script>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2025-05-30 13:31</div>
+</div>
+</body>
+</html>

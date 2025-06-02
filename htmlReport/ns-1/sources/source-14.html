@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Coverage Report > TestPersonne</title>
+    <style type="text/css">
+        @import "../../css/coverage.css";
+        @import "../../css/idea.min.css";
+    </style>
+    <script type="text/javascript" src="../../js/highlight.min.js"></script>
+    <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+    <div class="breadCrumbs">
+        Current scope: <a href="../../../index.html">all classes</a>
+        <span class="separator">|</span>
+        <a href="../index.html">io.github.lyes_sefiane</a>
+    </div>
+
+    <h1>Coverage Summary for Class: TestPersonne (io.github.lyes_sefiane)</h1>
+
+    <table class="coverageStats">
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Class, %
+            </th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Branch, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">TestPersonne</td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/1)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/6)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/14)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/51)
+  </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package io.github.lyes_sefiane;
+&nbsp;
+&nbsp;/**
+&nbsp; * Matricule UdeM : 20090833
+&nbsp; * @author Lyes SEFIANE
+&nbsp; * IFT 1170
+&nbsp; * Java et applications
+&nbsp; * lyes.sefiane@umontreal.ca
+&nbsp; * lyes.sefiane@gmail.com
+&nbsp; */
+&nbsp;
+<b class="nc">&nbsp;public class TestPersonne {</b>
+&nbsp;    /**
+&nbsp;     * Affichage des informations des personnes
+&nbsp;     */
+&nbsp;    public static void afficher (Personne[] personne, int nbPersonne,
+&nbsp;                                 String message){
+<b class="nc">&nbsp;        System.out.print(message);</b>
+<b class="nc">&nbsp;        System.out.printf(&quot;\t\t%3s %18s\n&quot;, &quot;Indice&quot;,&quot;Tableau pers&quot;);</b>
+<b class="nc">&nbsp;        System.out.printf(&quot;\t\t------------------------------------------\n&quot;);</b>
+<b class="nc">&nbsp;        for (int i = 0 ; i &lt; nbPersonne ; i++){</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;\t\t%3d) %35s\n&quot;, i, personne[i]);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Determiner l&#39;indice de la personne
+&nbsp;     * qui consomme le plus de cafe
+&nbsp;     */
+&nbsp;    public static int determiner(Personne[] personne, int nbPersonne) {
+<b class="nc">&nbsp;        int indiceMax = 0;</b>
+<b class="nc">&nbsp;        int max = Integer.MIN_VALUE;</b>
+<b class="nc">&nbsp;        for(int i = 0; i &lt; nbPersonne; i++){</b>
+<b class="nc">&nbsp;            if(personne[i].getNbCafe() &gt; max ){</b>
+<b class="nc">&nbsp;                max = personne[i].getNbCafe();</b>
+<b class="nc">&nbsp;                indiceMax = i;</b>
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        return indiceMax;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Reduction du nombre de tasses de cafes
+&nbsp;     * et mise à jour de l&#39;information
+&nbsp;     */
+&nbsp;    public static void reduireCafe(Personne[] personne,
+&nbsp;                                   int nbPersonne, int reduire) {
+&nbsp;        int difference;
+<b class="nc">&nbsp;        for(int i = 0; i &lt; nbPersonne; i++){</b>
+<b class="nc">&nbsp;            difference = personne[i].getNbCafe() - reduire;</b>
+<b class="nc">&nbsp;            if (difference &gt; 0 )</b>
+<b class="nc">&nbsp;                personne[i].setNbCafe(difference);</b>
+&nbsp;
+&nbsp;            else{
+<b class="nc">&nbsp;                difference = 0;</b>
+<b class="nc">&nbsp;                personne[i].setNbCafe(difference);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Compter le nombre de personnes
+&nbsp;     * qui sont nees à un mois donné
+&nbsp;     */
+&nbsp;    public static int compter(Personne[] personne,
+&nbsp;                              int nbPersonne, String moisNaiss) {
+<b class="nc">&nbsp;        int compter = 0;</b>
+<b class="nc">&nbsp;        for(int i = 0; i &lt; nbPersonne; i++){</b>
+<b class="nc">&nbsp;            if (personne[i].getNomMois().toUpperCase().equalsIgnoreCase(</b>
+&nbsp;                    moisNaiss))
+<b class="nc">&nbsp;                compter ++;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return compter;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+&nbsp;        String message;
+<b class="nc">&nbsp;        Personne pers1 = new Personne (&quot;25-12-1990&quot;, 3);</b>
+<b class="nc">&nbsp;        Personne pers2 = new Personne(&quot;18-01-1997&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t----------------------------&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t- Exercice numéro C du TP1 -&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t----------------------------&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        pers2.afficher(&quot;2) La deuxieme personne&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        pers1.setNbCafe((pers1.getNbCafe()) - 1);</b>
+<b class="nc">&nbsp;        pers1.afficher(&quot;\n3) Informations de pers1 &quot;+</b>
+&nbsp;                &quot;après réduction de sa consomation:\n &quot;+
+&nbsp;                &quot;-&gt;La premiere personne&quot;);
+&nbsp;
+<b class="nc">&nbsp;        Personne[] personne = { new Personne (&quot;16-11-1992&quot;, 2),</b>
+&nbsp;                new Personne (&quot;02-05-1990&quot;),
+&nbsp;                new Personne (&quot;23-05-1990&quot;, 4),
+&nbsp;                new Personne (&quot;19-02-1985&quot;, 1),
+&nbsp;                new Personne (&quot;30-06-1991&quot;, 3)
+&nbsp;        };
+&nbsp;
+<b class="nc">&nbsp;        int nbPersonne = personne.length;</b>
+<b class="nc">&nbsp;        System.out.printf(&quot;\n&quot;);</b>
+<b class="nc">&nbsp;        message = &quot;4.1)- Les informations des personnes\n&quot;;</b>
+<b class="nc">&nbsp;        afficher(personne,nbPersonne, message);</b>
+<b class="nc">&nbsp;        System.out.printf(&quot;\n&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        int i = determiner(personne, nbPersonne);</b>
+<b class="nc">&nbsp;        System.out.printf(&quot;4.2)- Les informations de la personne &quot;</b>
+&nbsp;                +&quot;qui consomme le plus de cafe\n&quot;
+<b class="nc">&nbsp;                +&quot;\t\t%3d) %35s\n&quot;, i, personne[i]);</b>
+<b class="nc">&nbsp;        System.out.printf(&quot;\n&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        int nbCafeReduire = 1;</b>
+<b class="nc">&nbsp;        reduireCafe(personne,nbPersonne, nbCafeReduire);</b>
+<b class="nc">&nbsp;        message = &quot;4.3)- Les informations des personnes apres reduction\n&quot;;</b>
+<b class="nc">&nbsp;        afficher(personne,nbPersonne, message);</b>
+<b class="nc">&nbsp;        System.out.printf(&quot;\n&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        String moisNaiss = &quot;mai&quot;;</b>
+<b class="nc">&nbsp;        int resultat = compter(personne, nbPersonne,moisNaiss.toUpperCase());</b>
+<b class="nc">&nbsp;        System.out.printf(&quot;4.4)- Le nombre de personnes qui sont nees &quot;</b>
+<b class="nc">&nbsp;                + &quot;au mois de %s est : %d&quot;, moisNaiss, resultat);</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;/*
+&nbsp;		----------------------------
+&nbsp;		- Exercice numéro C du TP1 -
+&nbsp;		----------------------------
+&nbsp;2) La deuxieme personne est nee le 18 janvier 1997 et consomme 0 tasse(s) de cafe
+&nbsp;
+&nbsp;3) Informations de pers1 après réduction de sa consomation:
+&nbsp; -&gt;La premiere personne est nee le 25 decembre 1990 et consomme 2 tasse(s) de cafe
+&nbsp;
+&nbsp;4.1)- Les informations des personnes
+&nbsp;		Indice       Tableau pers
+&nbsp;		------------------------------------------
+&nbsp;		  0)         &#39;16-11-1992&#39;     2 tasse(s)
+&nbsp;		  1)         &#39;02-05-1990&#39;     0 tasse(s)
+&nbsp;		  2)         &#39;23-05-1990&#39;     4 tasse(s)
+&nbsp;		  3)         &#39;19-02-1985&#39;     1 tasse(s)
+&nbsp;		  4)         &#39;30-06-1991&#39;     3 tasse(s)
+&nbsp;
+&nbsp;4.2)- Les informations de la personne qui consomme le plus de cafe
+&nbsp;		  2)         &#39;23-05-1990&#39;     4 tasse(s)
+&nbsp;
+&nbsp;4.3)- Les informations des personnes apres reduction
+&nbsp;		Indice       Tableau pers
+&nbsp;		------------------------------------------
+&nbsp;		  0)         &#39;16-11-1992&#39;     1 tasse(s)
+&nbsp;		  1)         &#39;02-05-1990&#39;     0 tasse(s)
+&nbsp;		  2)         &#39;23-05-1990&#39;     3 tasse(s)
+&nbsp;		  3)         &#39;19-02-1985&#39;     0 tasse(s)
+&nbsp;		  4)         &#39;30-06-1991&#39;     2 tasse(s)
+&nbsp;
+&nbsp;4.4)- Le nombre de personnes qui sont nees au mois de mai est : 2 */
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        var msie = false, msie9 = false;
+        /*@cc_on
+          msie = true;
+          @if (@_jscript_version >= 9)
+            msie9 = true;
+          @end
+        @*/
+
+        if (!msie || msie && msie9) {
+          hljs.highlightAll()
+          hljs.initLineNumbersOnLoad();
+        }
+    })();
+</script>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2025-05-30 13:31</div>
+</div>
+</body>
+</html>

@@ -1,35 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>io.github.lyes-sefiane</groupId>
-  <artifactId>udem-java-programming-and-applications</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <name>udem-java-programming-and-applications</name>
-  <url>http://maven.apache.org</url>
-  <packaging>pom</packaging>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.github.lyes-sefiane</groupId>
+    <artifactId>udem-java-programming-and-applications</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>udem-java-programming-and-applications</name>
+    <url>http://maven.apache.org</url>
+    <packaging>pom</packaging>
 
-  <properties>
-    <java.version>17</java.version>
-    <log4j.version>2.24.3</log4j.version>
-  </properties>
+    <properties>
+        <java.version>17</java.version>
+        <log4j.version>2.24.3</log4j.version>
+        <junit-jupiter.version>5.12.2</junit-jupiter.version>
+        <junit-platform-suite.version>1.12.2</junit-platform-suite.version>
+    </properties>
 
-  <modules>
-    <module>TP1_1170_H17</module>
-    <module>TP2_1170_H17</module>
-    <module>TP3_1170_H17</module>
-    <module>WEEK_1_2_1170_H17</module>
-    <module>WEEK_3_4_1170_H17</module>
-  </modules>
+    <modules>
+        <module>TP1_1170_H17</module>
+        <module>TP2_1170_H17</module>
+        <module>TP3_1170_H17</module>
+        <module>WEEK_1_2_1170_H17</module>
+        <module>WEEK_3_4_1170_H17</module>
+    </modules>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${junit-platform-suite.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>

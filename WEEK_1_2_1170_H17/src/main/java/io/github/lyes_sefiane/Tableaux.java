@@ -1,162 +1,108 @@
 package io.github.lyes_sefiane;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+/**
+ * @course : IFT 1170 Java Programming and Applications
+ * @university : University of Montreal
+ * @teacher : Van Nguyen Le
+ * @email : van.nguyen.le@umontreal.ca
+ * @student : Sefiane, Lyes
+ * @matricule : 20090833
+ * @email : lyes.sefiane@umontreal.ca
+ * @email : lyes.sefiane@gmail.com
+ * @date : 2017-04-19
+ */
 public class Tableaux {
 
+    private static final Logger logger = LogManager.getLogger(Tableaux.class);
 
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + Auteur(s) : Nicole Leblanc IFT 1810                                   +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + But de la fonction : Cette fonction compte et retourne le nombre      +
-   +                      de personnes ayant un statut voulu               +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + Dernière mise à jour : jj mm aaaa                                     +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- */
-
-    static int nombre ( char statutVoulu, char[] statut, int nbPers)
-    {
-        int n = 0 ;
-        for(int i = 0; i < nbPers; i++)
+    static int nombre(char statutVoulu, char[] statut, int nbPers) {
+        int n = 0;
+        for (int i = 0; i < nbPers; i++)
             if (statut[i] == statutVoulu)
                 n++;
         return n;
     }
 
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + Auteur(s) : Jean Tremblay  IFT 1810 B Groupe 1                        +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + But de la fonction : Cette fonction affiche le contenu des 3 tableaux +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + Dernière mise à jour :                                                +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- */
 
-    static void afficher(char[] statut, double[] taille, double[] poids, int nbPers, String mess)
-    {
-
-        System.out.printf("Contenu des 3 tableaux %s :\n", mess);
-        System.out.printf("  indice taille   poids  statut\n");
-        for (int i = 0; i < nbPers; i++)
-        {
-            System.out.printf("%5d%8.2f %9.1f", i, taille[i], poids[i]);
-            switch (statut[i])
-            {
-                case 'M' : System.out.printf("  marie\n"); break;
-                case 'C' : System.out.printf("  celibataire\n"); break;
-                case 'D' : System.out.printf("  divorce\n"); break;
-                case 'S' : System.out.printf("  separe\n"); break;
-                case 'V' : System.out.printf("  veuf\n"); break;
-                case 'A' : System.out.printf("  autre\n");
+    static void afficher(char[] statut, double[] taille, double[] poids, int nbPers, String mess) {
+        logger.info("Contenu des 3 tableaux {} :", mess);
+        logger.info("  indice taille   poids  statut");
+        for (int i = 0; i < nbPers; i++) {
+            logger.info("{} {} {}", i, taille[i], poids[i]);
+            switch (statut[i]) {
+                case 'M':
+                    logger.info("  marie");
+                    break;
+                case 'C':
+                    logger.info("  celibataire");
+                    break;
+                case 'D':
+                    logger.info("  divorce");
+                    break;
+                case 'S':
+                    logger.info("  separe");
+                    break;
+                case 'V':
+                    logger.info("  veuf");
+                    break;
+                case 'A':
+                    logger.info("  autre");
             }
         }
-        System.out.printf("\n");
-
-
     }
 
-    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-       + Auteur(s) : Jean Tremblay  IFT 1810 B Groupe 1                        +
-       +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-       + But de la fonction : Cette fonction compte et retourne le nombre      +
-       +                      d'elements d'un tableau qui depassent            +
-       +                      une borne donnee                                 +
-       +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-       + Dernière mise à jour :                                                +
-       +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-     */
-    static int nbFois(double[] tab, int nbElem, double borne)
-    {  int n = 0;
 
-        for(int i = 0; i < nbElem ; i++)
-            if ( tab[i] > borne )
+    static int nbFois(double[] tab, int nbElem, double borne) {
+        int n = 0;
+        for (int i = 0; i < nbElem; i++)
+            if (tab[i] > borne)
                 n++;
         return n;
     }
 
 
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + Auteur(s) : Nicole Leblanc IFT 1810 B Groupe 1                        +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + But de la fonction : Cette fonction calcule et retourne la moyenne    +
-   +                      d'un tableau des reels                           +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + Dernière mise à jour :                                                +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- */
-
-    static double moyenne(double[] tableau, int nbElem)
-    {
+    static double moyenne(double[] tableau, int nbElem) {
         double somme = 0.0;
-        for (int i = 0; i < nbElem ; i++)
+        for (int i = 0; i < nbElem; i++)
             somme += tableau[i];
 
-        return somme / nbElem ;
+        return somme / nbElem;
     }
 
 
-
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + Auteur(s) : Jean Tremblay  IFT 1810 B Groupe 1                        +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + But de la fonction : Cette fonction determine et retourne la valeur   +
-   +                      maximale d'un tableau des reels                  +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + Dernière mise à jour :                                                +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- */
-
-    static double maxi(double[] tableau, int nbElem)
-    {
-        double plusGrand = Double.MIN_VALUE; /* le reel le plus petit */
-
-
-        for (int i = 0; i < nbElem ; i++)
+    static double maxi(double[] tableau, int nbElem) {
+        double plusGrand = Double.MIN_VALUE;
+        for (int i = 0; i < nbElem; i++)
             if (tableau[i] > plusGrand)
                 plusGrand = tableau[i];
         return plusGrand;
-
     }
 
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + Auteur(s) : Jean Tremblay  IFT 1810 B Groupe 1                        +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + But de la fonction : Cette fonction affiche le contenu des 3 tableaux +
-   +                      pour un statut voulu (voir l'exécution)          +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + Dernière mise à jour :                                                +
-   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- */
 
-    static void afficher2(char statutVoulu, char[] statut, double[] taille,
-                          double[] poids, int nbPers)
-    {
-        int  k = 0 ;
-        System.out.printf("\nContenu des 3 tableaux pour le statut voulu : %c\n", statutVoulu);
-        System.out.printf("   rang  statut  taille   poids  \n");
-        for ( int i = 0; i < nbPers; i++)
-        {
-            if (statut[i] == statutVoulu)
-            { k++;
-                System.out.printf("%5d) %5c %8.2f %9.1f\n", k, statut[i], taille[i], poids[i]);
+    static void afficher2(char statutVoulu, char[] statut, double[] taille, double[] poids, int nbPers) {
+        int k = 0;
+        logger.info("Contenu des 3 tableaux pour le statut voulu : {}", statutVoulu);
+        logger.info("   rang  statut  taille   poids  ");
+        for (int i = 0; i < nbPers; i++) {
+            if (statut[i] == statutVoulu) {
+                k++;
+                logger.info("{}) {} {} {}", k, statut[i], taille[i], poids[i]);
             }
         }
-        System.out.printf("\n\n");
     }
 
 
+    static void trier(char[] statut, double[] taille, double[] poids, int nbPers) {
 
-    static void trier(char[] statut, double[] taille, double[] poids, int nbPers)
-    {
-
-        for(int i = 0; i < nbPers-1; i++)
-        {
+        for (int i = 0; i < nbPers - 1; i++) {
             int indMin = i;
-            for(int j = i+1; j < nbPers; j++)
+            for (int j = i + 1; j < nbPers; j++)
                 if (taille[j] < taille[indMin])
                     indMin = j;
-            if (indMin != i)
-            {
+            if (indMin != i) {
                 char tempo = statut[i];
                 statut[i] = statut[indMin];
                 statut[indMin] = tempo;
@@ -177,34 +123,27 @@ public class Tableaux {
 
 
     public static void main(String[] args) {
-        char[] statut = { 'M', 'C', 'D', 'M', 'S', 'M', 'A' };
-        double[] taille= { 1.72, 1.65, 1.59, 1.80, 1.82, 1.68, 1.75},
-                poids = { 68.3, 52.1, 72.9, 70.4, 81.5, 65.4, 70.3 } ;
+        char[] statut = {'M', 'C', 'D', 'M', 'S', 'M', 'A'};
+        double[] taille = {1.72, 1.65, 1.59, 1.80, 1.82, 1.68, 1.75},
+                poids = {68.3, 52.1, 72.9, 70.4, 81.5, 65.4, 70.3};
         int nbPers = taille.length;
-
 
         afficher(statut, taille, poids, nbPers, "avant le tri");
 
-        System.out.printf("Le nombre de personnes mariees : %d\n", nombre('M', statut, nbPers));
-        System.out.printf("Le nombre de personness separees : %d\n", nombre('S', statut, nbPers));
-
-        System.out.printf("Le nombre de personnes veuves : %d\n", nombre('V', statut, nbPers));
-
-        System.out.printf("La taille moyenne : %.2f metre\n", moyenne(taille, nbPers));
-        System.out.printf("Le poids moyen : %.1f kg\n", moyenne(poids, nbPers));
-
-        System.out.printf("La taille la plus grande : %.2f metre\n", maxi(taille, nbPers));
-        System.out.printf("Le poids le plus lourd   : %.1f kg\n", maxi(poids, nbPers));
-
-        System.out.printf("Le nombre de personnes dont la taille depasse 1.76 metre : %d\n",
-                nbFois(taille, nbPers, 1.76));
-        System.out.printf("Le nombre de personnes dont le poids depasse 70.0 kg : %d\n",
-                nbFois(poids, nbPers, 70.0));
+        logger.info("Le nombre de personnes mariees : {}", nombre('M', statut, nbPers));
+        logger.info("Le nombre de personness separees : {}}", nombre('S', statut, nbPers));
+        logger.info("Le nombre de personnes veuves : {}}", nombre('V', statut, nbPers));
+        logger.info("La taille moyenne : {} metre", moyenne(taille, nbPers));
+        logger.info("Le poids moyen : {} kg\n", moyenne(poids, nbPers));
+        logger.info("La taille la plus grande : {} metre", maxi(taille, nbPers));
+        logger.info("Le poids le plus lourd   : {} kg", maxi(poids, nbPers));
+        logger.info("Le nombre de personnes dont la taille depasse 1.76 metre : {}", nbFois(taille, nbPers, 1.76));
+        logger.info("Le nombre de personnes dont le poids depasse 70.0 kg : {}", nbFois(poids, nbPers, 70.0));
 
         afficher2('M', statut, taille, poids, nbPers);
 
+        trier(statut, taille, poids, nbPers);
 
-        trier(statut, taille, poids, nbPers); // trier selon les tailles
         afficher(statut, taille, poids, nbPers, "après le tri selon les tailles");
     }
 }

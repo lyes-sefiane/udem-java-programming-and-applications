@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Coverage Report > TestEmployee</title>
+    <style type="text/css">
+        @import "../../css/coverage.css";
+        @import "../../css/idea.min.css";
+    </style>
+    <script type="text/javascript" src="../../js/highlight.min.js"></script>
+    <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+    <div class="breadCrumbs">
+        Current scope: <a href="../../../index.html">all classes</a>
+        <span class="separator">|</span>
+        <a href="../index.html">io.github.lyes_sefiane</a>
+    </div>
+
+    <h1>Coverage Summary for Class: TestEmployee (io.github.lyes_sefiane)</h1>
+
+    <table class="coverageStats">
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Class, %
+            </th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Branch, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">TestEmployee</td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/1)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/8)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/22)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/52)
+  </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package io.github.lyes_sefiane;
+&nbsp;
+&nbsp;import java.io.*;
+&nbsp;/**
+&nbsp; * Matricule UdeM : 20090833
+&nbsp; * @author Lyes SEFIANE
+&nbsp; * IFT 1170
+&nbsp; * Java et applications
+&nbsp; * lyes.sefiane@umontreal.ca
+&nbsp; * lyes.sefiane@gmail.com
+&nbsp; */
+<b class="nc">&nbsp;public class TestEmployee {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Affichage des informations des employés
+&nbsp;     */
+&nbsp;    public static void affichEmploye(Employee[] emp, int nbEmployee) {
+<b class="nc">&nbsp;        System.out.println(&quot;Affichage des employés\n&quot;);</b>
+<b class="nc">&nbsp;        System.out.printf(&quot;%s %12s %15s\n&quot;, &quot;Indice&quot;, &quot;NAS-Employe&quot;,</b>
+&nbsp;                &quot;Salaire Hebdo&quot;);
+<b class="nc">&nbsp;        for(int i = 0 ; i &lt; nbEmployee; i++) {</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;%4d %s\n&quot;, i, emp[i]);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Recherche d&#39;un caratère dans une chaine de caratères.
+&nbsp;     * il suffit de trouver une correspondance afin que
+&nbsp;     * la méthode return vrai, d&#39;où l&#39;utilisation de while
+&nbsp;     */
+&nbsp;    public static boolean trouve(char caractere, String nas) {
+<b class="nc">&nbsp;        boolean existe = false;</b>
+<b class="nc">&nbsp;        int i = 0;</b>
+&nbsp;
+<b class="nc">&nbsp;        while(!existe){</b>
+<b class="nc">&nbsp;            if(i &lt; nas.length()){</b>
+<b class="nc">&nbsp;                if (nas.charAt(i) == caractere)</b>
+<b class="nc">&nbsp;                    existe = true;</b>
+<b class="nc">&nbsp;                i++;</b>
+&nbsp;            }
+&nbsp;            else
+&nbsp;                break;
+&nbsp;        }
+<b class="nc">&nbsp;        return existe;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Recherche des employés payés moins d&#39;un certain seuil
+&nbsp;     * Dont le NAS contient un numéro précis
+&nbsp;     */
+&nbsp;    public static void gagneMoins(Employee[] emp, int nbEmployee,
+&nbsp;                                  double seuilMax, char caractere) {
+<b class="nc">&nbsp;        System.out.printf(&quot;- Le(s) employé(s) gagant moins de %.2f$ par semaine &quot;+</b>
+<b class="nc">&nbsp;                &quot;dont le NAS contient &#39;%c&#39;\n&quot;,  seuilMax, caractere);</b>
+&nbsp;
+<b class="nc">&nbsp;        for(int i = 0; i &lt; nbEmployee; i++ ){</b>
+<b class="nc">&nbsp;            if ((emp[i].getSalHebdo() &lt; seuilMax) &amp;</b>
+<b class="nc">&nbsp;                    (trouve(caractere , emp[i].getNas())))</b>
+<b class="nc">&nbsp;                System.out.printf(&quot;%4d %s\n&quot;, i, emp[i]);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Permutation entre deux employés dans un tableau
+&nbsp;     */
+&nbsp;    public static void permuter(Employee[] emp, int i, int j) {
+<b class="nc">&nbsp;        Employee var = emp[i];</b>
+<b class="nc">&nbsp;        emp[i] = emp[j];</b>
+<b class="nc">&nbsp;        emp[j] = var;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Tri par séléction des employés selon leurs NAS
+&nbsp;     */
+&nbsp;    public static void triEmploye(Employee[] emp, int nbEmployee) {
+<b class="nc">&nbsp;        for (int i = 0; i &lt; nbEmployee; i++){</b>
+<b class="nc">&nbsp;            for (int j = i + 1; j &lt; nbEmployee; j++){</b>
+<b class="nc">&nbsp;                if(emp[i].getNas().compareTo(emp[j].getNas()) &gt; 0)</b>
+<b class="nc">&nbsp;                    permuter(emp, i, j);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Création et écriture des informations des employés dans un fichier
+&nbsp;     */
+&nbsp;    public static void creerFichier(Employee[] emp, String nomFichier,
+&nbsp;                                    int nbEmploye) throws IOException {
+<b class="nc">&nbsp;        FileWriter fichier = new FileWriter(nomFichier);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;Début de création du Fichier\n&quot;);</b>
+<b class="nc">&nbsp;        PrintWriter aCreer = new PrintWriter( fichier );</b>
+<b class="nc">&nbsp;        for(int i = 0; i &lt; nbEmploye; i++ ){</b>
+<b class="nc">&nbsp;            aCreer.printf(&quot;%d %s\n&quot;, i, emp[i]);</b>
+&nbsp;        }
+&nbsp;        aCreer.close();
+<b class="nc">&nbsp;        System.out.printf(&quot;Fin de création du Fichier %s\n&quot;, nomFichier);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void main(String[] args) throws IOException {
+<b class="nc">&nbsp;        Employee emp1 = new Employee(&quot;250 642 753&quot;, 1234.56),</b>
+<b class="nc">&nbsp;                emp2 = new Employee(&quot;123 456 789&quot;),</b>
+<b class="nc">&nbsp;                emp3 = new Employee(&quot;250 343 678&quot;, 40.00, 25.75);</b>
+&nbsp;
+<b class="nc">&nbsp;        Employee[] emp = {  new Employee(&quot;250 642 753&quot;, 1234.25),</b>
+&nbsp;                new Employee(&quot;123 456 789&quot;),
+&nbsp;                new Employee(&quot;250 343 654&quot;, 42, 17.25),
+&nbsp;                new Employee(&quot;231 467 890&quot;, 1671.50),
+&nbsp;                new Employee(&quot;478 343 689&quot;, 750.75),
+&nbsp;                new Employee(&quot;371 238 432&quot;, 50, 20.25)
+&nbsp;        };
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t----------------------------&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t- Exercice numéro A du TP2 -&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t----------------------------&quot;);</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        emp1.afficher(&quot;Information Employe 1&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        emp3.afficher(&quot;Information Employe 3&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        emp2.setSalHebdo(emp1.getSalHebdo() + emp3.getSalHebdo());</b>
+&nbsp;
+<b class="nc">&nbsp;        emp2.afficher(&quot;Information Employe 2&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        int nbEmploye = emp.length;</b>
+&nbsp;
+<b class="nc">&nbsp;        affichEmploye (emp, nbEmploye);</b>
+&nbsp;
+<b class="nc">&nbsp;        gagneMoins(emp, nbEmploye, 1234.50, &#39;5&#39;);</b>
+&nbsp;
+<b class="nc">&nbsp;        gagneMoins(emp, nbEmploye, 750.00, &#39;3&#39;);</b>
+&nbsp;
+<b class="nc">&nbsp;        triEmploye(emp, nbEmploye);</b>
+&nbsp;
+<b class="nc">&nbsp;        affichEmploye (emp, nbEmploye);</b>
+&nbsp;
+<b class="nc">&nbsp;        creerFichier(emp, &quot;./empTri.dta&quot;, nbEmploye);</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;/*
+&nbsp;		----------------------------
+&nbsp;		- Exercice numéro A du TP2 -
+&nbsp;		----------------------------
+&nbsp;Information Employe 1
+&nbsp;Numéro Assurence Sociale : 250 642 753
+&nbsp;Salaire Hebdomadaire     : 1234,56
+&nbsp;
+&nbsp;Information Employe 3
+&nbsp;Numéro Assurence Sociale : 250 343 678
+&nbsp;Salaire Hebdomadaire     : 1030,00
+&nbsp;
+&nbsp;Information Employe 2
+&nbsp;Numéro Assurence Sociale : 123 456 789
+&nbsp;Salaire Hebdomadaire     : 2264,56
+&nbsp;
+&nbsp;Affichage des employés
+&nbsp;
+&nbsp;Indice  NAS-Employe   Salaire Hebdo
+&nbsp;   0    &#39;250 642 753&#39;     1234,25$
+&nbsp;   1    &#39;123 456 789&#39;     1000,00$
+&nbsp;   2    &#39;250 343 654&#39;      724,50$
+&nbsp;   3    &#39;231 467 890&#39;     1671,50$
+&nbsp;   4    &#39;478 343 689&#39;      750,75$
+&nbsp;   5    &#39;371 238 432&#39;     1012,50$
+&nbsp;
+&nbsp;- Le(s) employé(s) gagant moins de 1234,50$ par semaine dont le NAS contient &#39;5&#39;
+&nbsp;   0    &#39;250 642 753&#39;     1234,25$
+&nbsp;   1    &#39;123 456 789&#39;     1000,00$
+&nbsp;   2    &#39;250 343 654&#39;      724,50$
+&nbsp;
+&nbsp;- Le(s) employé(s) gagant moins de 750,00$ par semaine dont le NAS contient &#39;3&#39;
+&nbsp;   2    &#39;250 343 654&#39;      724,50$
+&nbsp;
+&nbsp;Affichage des employés
+&nbsp;
+&nbsp;Indice  NAS-Employe   Salaire Hebdo
+&nbsp;   0    &#39;123 456 789&#39;     1000,00$
+&nbsp;   1    &#39;231 467 890&#39;     1671,50$
+&nbsp;   2    &#39;250 343 654&#39;      724,50$
+&nbsp;   3    &#39;250 642 753&#39;     1234,25$
+&nbsp;   4    &#39;371 238 432&#39;     1012,50$
+&nbsp;   5    &#39;478 343 689&#39;      750,75$
+&nbsp;
+&nbsp;Début de création du Fichier
+&nbsp;
+&nbsp;Fin de création du Fichier empTri.dta */
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        var msie = false, msie9 = false;
+        /*@cc_on
+          msie = true;
+          @if (@_jscript_version >= 9)
+            msie9 = true;
+          @end
+        @*/
+
+        if (!msie || msie && msie9) {
+          hljs.highlightAll()
+          hljs.initLineNumbersOnLoad();
+        }
+    })();
+</script>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2025-05-30 13:31</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Coverage Report > Pays</title>
+    <style type="text/css">
+        @import "../../css/coverage.css";
+        @import "../../css/idea.min.css";
+    </style>
+    <script type="text/javascript" src="../../js/highlight.min.js"></script>
+    <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+    <div class="breadCrumbs">
+        Current scope: <a href="../../../index.html">all classes</a>
+        <span class="separator">|</span>
+        <a href="../index.html">io.github.lyes_sefiane</a>
+    </div>
+
+    <h1>Coverage Summary for Class: Pays (io.github.lyes_sefiane)</h1>
+
+    <table class="coverageStats">
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Class, %
+            </th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Branch, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">Pays</td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/1)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/15)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/4)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/26)
+  </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package io.github.lyes_sefiane;
+&nbsp;
+&nbsp;/**
+&nbsp; * Matricule UdeM : 20090833
+&nbsp; * @author Lyes SEFIANE
+&nbsp; * IFT 1170
+&nbsp; * Java et ses applications
+&nbsp; * lyes.sefiane@umontreal.ca
+&nbsp; * lyes.sefiane@gmail.com
+&nbsp; */
+&nbsp;public class Pays implements Comparable&lt;Pays&gt;{
+&nbsp;    private char codeContinent;
+&nbsp;    private String nomPays;
+&nbsp;    private String capitalePays;
+&nbsp;    private int superficiePays;
+&nbsp;    private int populationPays;
+&nbsp;
+&nbsp;    public Pays(char codePays, String nomPays, String capitalePays,
+<b class="nc">&nbsp;                int superficiePays, int populationPays) {</b>
+<b class="nc">&nbsp;        this.codeContinent = codePays;</b>
+<b class="nc">&nbsp;        this.nomPays = nomPays;</b>
+<b class="nc">&nbsp;        this.capitalePays = capitalePays;</b>
+<b class="nc">&nbsp;        this.superficiePays = superficiePays;</b>
+<b class="nc">&nbsp;        this.populationPays = populationPays;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public char getCodeContinent() {
+<b class="nc">&nbsp;        return codeContinent;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setCodeContinent(char codeContinent) {
+<b class="nc">&nbsp;        this.codeContinent = codeContinent;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getNomPays() {
+<b class="nc">&nbsp;        return nomPays;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setNomPays(String nomPays) {
+<b class="nc">&nbsp;        this.nomPays = nomPays;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getCapitalePays() {
+<b class="nc">&nbsp;        return capitalePays;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setCapitalePays(String capitalePays) {
+<b class="nc">&nbsp;        this.capitalePays = capitalePays;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getSuperficiePays() {
+<b class="nc">&nbsp;        return superficiePays;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setSuperficiePays(int superficiePays) {
+<b class="nc">&nbsp;        this.superficiePays = superficiePays;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getPopulationPays() {
+<b class="nc">&nbsp;        return populationPays;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setPopulationPays(int populationPays) {
+<b class="nc">&nbsp;        this.populationPays = populationPays;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /* (non-Javadoc)
+&nbsp;     * @see java.lang.Object#toString()
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+<b class="nc">&nbsp;        return String.format(&quot;%4s %30s   %20s  %10s km²   %17s&quot;, codeContinent,</b>
+<b class="nc">&nbsp;                nomPays, capitalePays, superficiePays, populationPays);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /*
+&nbsp;     * Deux pays sont égaux, s&#39;ils ont le même nom
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(Object obj) {
+<b class="nc">&nbsp;        if (this == obj){</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;        }
+&nbsp;        else
+<b class="nc">&nbsp;        if(this.getClass() != obj.getClass()){</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;        }
+&nbsp;        else{
+<b class="nc">&nbsp;            Pays autre = (Pays)obj;</b>
+<b class="nc">&nbsp;            return nomPays.trim().equalsIgnoreCase(autre.nomPays.trim());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /*
+&nbsp;     * Comparaison de deux pays se fait sur la base de leurs noms
+&nbsp;     */
+&nbsp;    public int compareTo(Pays autre) {
+<b class="nc">&nbsp;        return nomPays.toUpperCase().compareTo(autre.nomPays.toUpperCase());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Retourn la densité d&#39;un pays
+&nbsp;     */
+&nbsp;    public float densite(){
+<b class="nc">&nbsp;        return ((float)populationPays / (float)superficiePays);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        var msie = false, msie9 = false;
+        /*@cc_on
+          msie = true;
+          @if (@_jscript_version >= 9)
+            msie9 = true;
+          @end
+        @*/
+
+        if (!msie || msie && msie9) {
+          hljs.highlightAll()
+          hljs.initLineNumbersOnLoad();
+        }
+    })();
+</script>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2025-05-30 13:31</div>
+</div>
+</body>
+</html>

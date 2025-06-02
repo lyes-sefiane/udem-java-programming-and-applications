@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Coverage Report > TestPaysVector</title>
+    <style type="text/css">
+        @import "../../css/coverage.css";
+        @import "../../css/idea.min.css";
+    </style>
+    <script type="text/javascript" src="../../js/highlight.min.js"></script>
+    <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+    <div class="breadCrumbs">
+        Current scope: <a href="../../../index.html">all classes</a>
+        <span class="separator">|</span>
+        <a href="../index.html">io.github.lyes_sefiane</a>
+    </div>
+
+    <h1>Coverage Summary for Class: TestPaysVector (io.github.lyes_sefiane)</h1>
+
+    <table class="coverageStats">
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Class, %
+            </th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Branch, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">TestPaysVector</td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/1)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/9)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/18)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/88)
+  </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package io.github.lyes_sefiane;
+&nbsp;
+&nbsp;import java.io.*;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.Vector;
+&nbsp;/**
+&nbsp; * Matricule UdeM : 20090833
+&nbsp; * @author Lyes SEFIANE
+&nbsp; * IFT 1170
+&nbsp; * Java et ses applications
+&nbsp; * lyes.sefiane@umontreal.ca
+&nbsp; * lyes.sefiane@gmail.com
+&nbsp; */
+<b class="nc">&nbsp;public class TestPaysVector {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Lecture du ficher de données
+&nbsp;     */
+&nbsp;    public static Vector&lt;Pays&gt; lireCreePays(String fichierAlire) throws IOException {
+&nbsp;
+<b class="nc">&nbsp;        Vector&lt;Pays&gt; pays = new Vector&lt;Pays&gt;();</b>
+&nbsp;        char codePays;
+&nbsp;        String nomPays, capitalePays;
+<b class="nc">&nbsp;        int superficiePays, populationPays, nbLigne = 0;</b>
+<b class="nc">&nbsp;        boolean existeFichier = false;</b>
+&nbsp;
+<b class="nc">&nbsp;        InputStream fr = TestNationLinkedList.class.getClassLoader().getResourceAsStream(fichierAlire);</b>
+<b class="nc">&nbsp;        if(!existeFichier){</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Debut de lecture du fichier %s ..\n\n&quot;, fichierAlire);</b>
+<b class="nc">&nbsp;            BufferedReader entree = new BufferedReader(new InputStreamReader(fr));</b>
+<b class="nc">&nbsp;            boolean finFichier = false;</b>
+&nbsp;
+<b class="nc">&nbsp;            while (!finFichier ){</b>
+<b class="nc">&nbsp;                String uneLigne = entree.readLine();</b>
+&nbsp;
+<b class="nc">&nbsp;                if(uneLigne == null)</b>
+<b class="nc">&nbsp;                    finFichier = true;</b>
+&nbsp;                else {
+<b class="nc">&nbsp;                    codePays = uneLigne.charAt(0);</b>
+<b class="nc">&nbsp;                    nomPays = uneLigne.substring(1,36).trim();</b>
+<b class="nc">&nbsp;                    capitalePays = uneLigne.substring(36, 62).trim();</b>
+<b class="nc">&nbsp;                    superficiePays = Integer.parseInt(uneLigne.substring(62, 70).trim());</b>
+<b class="nc">&nbsp;                    populationPays = Integer.parseInt(uneLigne.substring(75).trim());</b>
+<b class="nc">&nbsp;                    pays.addElement(new Pays(codePays, nomPays, capitalePays,</b>
+&nbsp;                            superficiePays, populationPays));
+<b class="nc">&nbsp;                    nbLigne++;</b>
+&nbsp;                }
+&nbsp;            }
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Nombre de pays lu est : %d \n\n&quot;, nbLigne);</b>
+&nbsp;            entree.close();
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Fin de lecture du fichier %s \n\n&quot;, fichierAlire);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return pays;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Affichage des informations des Pays
+&nbsp;     * En redefinissant la methode toString()
+&nbsp;     */
+&nbsp;    public static void affichePays(Vector&lt;Pays&gt; pays, int nbPaysAfficher) {
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot;+ Information des %d pays \n&quot;, nbPaysAfficher);</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot;%6s %28s  %22s %14s %20s\n&quot;, &quot;Code&quot;, &quot;NomPays&quot;,</b>
+&nbsp;                &quot;Capitale&quot;, &quot;Superficie&quot;, &quot;Population&quot;);
+&nbsp;
+<b class="nc">&nbsp;        for(int i = 0 ; i &lt; nbPaysAfficher; i++)</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;%s\n&quot;, pays.elementAt(i));</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot;\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Modification du code continent d&#39;un Pays
+&nbsp;     */
+&nbsp;    public static void modifierCodeContient(Vector&lt;Pays&gt;pays, String nomPays,
+&nbsp;                                            char newCode) {
+&nbsp;
+<b class="nc">&nbsp;        boolean existe = false;</b>
+<b class="nc">&nbsp;        Pays aChercher = new Pays(&#39;0&#39;,nomPays,&quot;&quot;,0,0); // Création d&#39;un objet pays</b>
+&nbsp;
+<b class="nc">&nbsp;        existe = pays.contains(aChercher);</b>
+&nbsp;
+<b class="nc">&nbsp;        if(!existe){</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;Pays %s existe pas... \n\n&quot;, nomPays);</b>
+&nbsp;        }
+&nbsp;        else{
+<b class="nc">&nbsp;            int i = pays.indexOf(aChercher);</b>
+<b class="nc">&nbsp;            pays.get(i).setCodeContinent(newCode);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Code Continent du pays &#39;%s&#39; modifié \n&quot;, nomPays);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;%s&quot;, pays.elementAt(i));</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot;\n\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Modification de la capitale d&#39;un pays
+&nbsp;     */
+&nbsp;    public static void modifierCapitale(Vector&lt;Pays&gt;pays, String nomPays,
+&nbsp;                                        String newCapitale) {
+&nbsp;
+<b class="nc">&nbsp;        boolean existe = false;</b>
+&nbsp;
+<b class="nc">&nbsp;        Pays aChercher = new Pays(&#39;0&#39;,nomPays,&quot;&quot;,0,0);// Création d&#39;un objet pays</b>
+<b class="nc">&nbsp;        existe = pays.contains(aChercher);</b>
+&nbsp;
+<b class="nc">&nbsp;        if(!existe){</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;Pays %s existe pas... \n\n&quot;, nomPays);</b>
+&nbsp;        }
+&nbsp;        else{
+<b class="nc">&nbsp;            int i = pays.indexOf(aChercher);</b>
+<b class="nc">&nbsp;            pays.get(i).setCapitalePays(newCapitale);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Capitale du pays &#39;%s&#39; modifié \n&quot;, nomPays);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;%s&quot;, pays.get(i));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;\n\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Modification de la population d&#39;un pays
+&nbsp;     * Avec un multiplicateur.
+&nbsp;     * Ex :  10 x Population de ce même pays
+&nbsp;     */
+&nbsp;    public static void modifierPopulation(Vector&lt;Pays&gt; pays, String nomPays,
+&nbsp;                                          int multiplicateur) {
+&nbsp;
+<b class="nc">&nbsp;        boolean existe = false;</b>
+<b class="nc">&nbsp;        Pays aChercher = new Pays(&#39;0&#39;,nomPays,&quot;&quot;,0,0); // Création d&#39;un objet pays</b>
+&nbsp;
+<b class="nc">&nbsp;        existe = pays.contains(aChercher);</b>
+&nbsp;
+<b class="nc">&nbsp;        if(!existe){</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;Pays %s existe pas... \n\n&quot;, nomPays);</b>
+&nbsp;        }
+&nbsp;        else{
+<b class="nc">&nbsp;            int i = pays.indexOf(aChercher);</b>
+<b class="nc">&nbsp;            pays.get(i).setPopulationPays(	pays.get(i).getPopulationPays() *</b>
+&nbsp;                    multiplicateur);
+&nbsp;
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Population du pays &#39;%s&#39; modifié \n&quot;, nomPays);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;%s&quot;, pays.get(i));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;\n\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Recherche dichotomique d&#39;un pays
+&nbsp;     * Basé sur son Nom (compareTo)
+&nbsp;     */
+&nbsp;    public static void binarySearch(Vector&lt;Pays&gt; pays, String nomPays) {
+&nbsp;
+<b class="nc">&nbsp;        Pays aChercher = new Pays(&#39;0&#39;,nomPays,&quot;&quot;,0,0);</b>
+<b class="nc">&nbsp;        int index = Collections.binarySearch(pays,aChercher);</b>
+&nbsp;
+<b class="nc">&nbsp;        if(index &lt; 0 ){</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;Pays %s existe pas... \n\n&quot;, nomPays);</b>
+&nbsp;        }
+&nbsp;        else{
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Pays &#39;%s&#39; trouvé à l&#39;indice %d\n&quot;, nomPays, index);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;%s&quot;, pays.get(index));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;\n\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Suppression d&#39;un pays
+&nbsp;     */
+&nbsp;    public static void removePays(Vector&lt;Pays&gt; pays, String nomPays) {
+&nbsp;
+<b class="nc">&nbsp;        Pays aChercher = new Pays(&#39;0&#39;,nomPays,&quot;&quot;,0,0);</b>
+<b class="nc">&nbsp;        int index = Collections.binarySearch(pays, aChercher);</b>
+&nbsp;
+<b class="nc">&nbsp;        if(index &lt; 0 ){</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;Pays %s existe pas... \n\n&quot;, nomPays);</b>
+&nbsp;        }
+&nbsp;        else{
+<b class="nc">&nbsp;            pays.remove(index);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Pays &#39;%s&#39; supprimé à l&#39;indice %d\n&quot;, nomPays, index);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;\n\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    public static void main(String[] args) throws IOException {
+&nbsp;
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t----------------------------&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t- Exercice numéro A du TP3 -&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t----------------------------\n&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        Vector&lt;Pays&gt; pays = lireCreePays (&quot;pays_h17.txt&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        affichePays(pays, 12);</b>
+&nbsp;
+&nbsp;        // Code Continent : ‘5’ pour Europe
+<b class="nc">&nbsp;        modifierCodeContient(pays, &quot;Russie&quot;, &#39;5&#39;);</b>
+&nbsp;
+<b class="nc">&nbsp;        modifierCapitale(pays, &quot;Chine&quot;, &quot;Pekin&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        modifierPopulation(pays, &quot;Allemagne&quot;, 10);</b>
+&nbsp;
+<b class="nc">&nbsp;        affichePays(pays, 15);</b>
+&nbsp;
+&nbsp;        // Basé sur compareTo
+&nbsp;        // et l&#39;implementation de l&#39;interface Comparable
+<b class="nc">&nbsp;        Collections.sort(pays);</b>
+&nbsp;
+<b class="nc">&nbsp;        affichePays(pays, 10);</b>
+&nbsp;
+<b class="nc">&nbsp;        binarySearch(pays, &quot;Canada&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        binarySearch(pays, &quot;France&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        binarySearch(pays, &quot;Japon&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        binarySearch(pays, &quot;Mexique&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        removePays(pays, &quot;DES OURAGANS&quot;);</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;/*
+&nbsp;		----------------------------
+&nbsp;		- Exercice numéro A du TP3 -
+&nbsp;		----------------------------
+&nbsp;
+&nbsp;+ Debut de lecture du fichier pays_h17.txt ..
+&nbsp;
+&nbsp;+ Nombre de pays lu est : 198
+&nbsp;
+&nbsp;+ Fin de lecture du fichier pays_h17.txt
+&nbsp;
+&nbsp;+ Information des 12 pays
+&nbsp;  Code                      NomPays                Capitale     Superficie           Population
+&nbsp;   2                     ETATS-UNIS             WASHINGTON     9629047 km²           291289535
+&nbsp;   3                          CHINE               SHANGHAI     9596960 km²          1273111290
+&nbsp;   2                         RUSSIE                 MOSCOU    17075400 km²           143954573
+&nbsp;   4                      AUSTRALIE               CANBERRA     7686850 km²            19834248
+&nbsp;   3                          JAPON                  TOKYO      377835 km²            12761000
+&nbsp;   4                   DES OURAGANS                TEMPETE           1 km²                   1
+&nbsp;   5                      ALLEMAGNE                 BERLIN      357027 km²             8253700
+&nbsp;   5                         FRANCE              MARSEILLE      543964 km²            61387038
+&nbsp;   5                         ITALIE                   ROME      301230 km²            57715620
+&nbsp;   3                   COREE DU SUD                  SEOUL       99274 km²            48324000
+&nbsp;   5                    ROYAUME-UNI                LONDRES      244101 km²            58789194
+&nbsp;   2                           CUBA              LA HAVANE      100860 km²            11184023
+&nbsp;
+&nbsp;+ Code Continent du pays &#39;Russie&#39; modifié
+&nbsp;   5                         RUSSIE                 MOSCOU    17075400 km²           143954573
+&nbsp;
+&nbsp;+ Capitale du pays &#39;Chine&#39; modifié
+&nbsp;   3                          CHINE                  Pekin     9596960 km²          1273111290
+&nbsp;
+&nbsp;+ Population du pays &#39;Allemagne&#39; modifié
+&nbsp;   5                      ALLEMAGNE                 BERLIN      357027 km²            82537000
+&nbsp;
+&nbsp;+ Information des 15 pays
+&nbsp;  Code                      NomPays                Capitale     Superficie           Population
+&nbsp;   2                     ETATS-UNIS             WASHINGTON     9629047 km²           291289535
+&nbsp;   3                          CHINE                  Pekin     9596960 km²          1273111290
+&nbsp;   5                         RUSSIE                 MOSCOU    17075400 km²           143954573
+&nbsp;   4                      AUSTRALIE               CANBERRA     7686850 km²            19834248
+&nbsp;   3                          JAPON                  TOKYO      377835 km²            12761000
+&nbsp;   4                   DES OURAGANS                TEMPETE           1 km²                   1
+&nbsp;   5                      ALLEMAGNE                 BERLIN      357027 km²            82537000
+&nbsp;   5                         FRANCE              MARSEILLE      543964 km²            61387038
+&nbsp;   5                         ITALIE                   ROME      301230 km²            57715620
+&nbsp;   3                   COREE DU SUD                  SEOUL       99274 km²            48324000
+&nbsp;   5                    ROYAUME-UNI                LONDRES      244101 km²            58789194
+&nbsp;   2                           CUBA              LA HAVANE      100860 km²            11184023
+&nbsp;   5                        UKRAINE                   KIEV      603700 km²            48396470
+&nbsp;   5                        HONGRIE               BUDAPEST       93030 km²            10106017
+&nbsp;   5                       ROUMANIE               BUCAREST      238390 km²            22272000
+&nbsp;
+&nbsp;+ Information des 10 pays
+&nbsp;  Code                      NomPays                Capitale     Superficie           Population
+&nbsp;   3                    AFGHANISTAN                 KABOUL      652225 km²            29547078
+&nbsp;   1                 AFRIQUE DU SUD               PRETORIA     1219912 km²            42718530
+&nbsp;   5                        ALBANIE                 TIRANA       28748 km²             3510484
+&nbsp;   1                        ALGERIE                  ALGER     2381740 km²            31763053
+&nbsp;   5                      ALLEMAGNE                 BERLIN      357027 km²            82537000
+&nbsp;   5                        ANDORRE       ANDORRA LA VELLA         468 km²               67627
+&nbsp;   1                         ANGOLA                 LUANDA     1246700 km²            10766471
+&nbsp;   2             ANTIGUA-ET-BARBUDA            SAINT-JOHNS         442 km²               67448
+&nbsp;   2         ANTILLES NEERLANDAISES             WILLEMSTAD         800 km²              210000
+&nbsp;   3                ARABIE SAOUDITE                  RIYAD     1960582 km²            23513330
+&nbsp;
+&nbsp;+ Pays &#39;Canada&#39; trouvé à l&#39;indice 36
+&nbsp;   2                         CANADA                 OTTAWA     9984670 km²            31499560
+&nbsp;
+&nbsp;+ Pays &#39;France&#39; trouvé à l&#39;indice 65
+&nbsp;   5                         FRANCE              MARSEILLE      543964 km²            61387038
+&nbsp;
+&nbsp;+ Pays &#39;Japon&#39; trouvé à l&#39;indice 94
+&nbsp;   3                          JAPON                  TOKYO      377835 km²            12761000
+&nbsp;
+&nbsp;+ Pays &#39;Mexique&#39; trouvé à l&#39;indice 119
+&nbsp;   2                        MEXIQUE                 MEXICO     1972550 km²           103400165
+&nbsp;
+&nbsp;+ Pays &#39;DES OURAGANS&#39; supprimé à l&#39;indice 51
+&nbsp; */
+&nbsp;
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        var msie = false, msie9 = false;
+        /*@cc_on
+          msie = true;
+          @if (@_jscript_version >= 9)
+            msie9 = true;
+          @end
+        @*/
+
+        if (!msie || msie && msie9) {
+          hljs.highlightAll()
+          hljs.initLineNumbersOnLoad();
+        }
+    })();
+</script>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2025-05-30 13:31</div>
+</div>
+</body>
+</html>

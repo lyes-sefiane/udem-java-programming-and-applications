@@ -1,87 +1,50 @@
 package io.github.lyes_sefiane;
 
-/* Fichier Trier2.java
- * Comme Trier1.java mais un peu plus sur la POO
- * avec la classe Temperature, ses objets, ...
- *
- * Explications : en classe
+import io.github.lyes_sefiane.model.Temperature;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+/**
+ * @course : IFT 1170 Java Programming and Applications
+ * @university : University of Montreal
+ * @teacher : Van Nguyen Le
+ * @email : van.nguyen.le@umontreal.ca
+ * @student : Sefiane, Lyes
+ * @matricule : 20090833
+ * @email : lyes.sefiane@umontreal.ca
+ * @email : lyes.sefiane@gmail.com
+ * @date : 2017-04-19
  */
-
-class Temperature
-{
-    private String journee;
-    private int degreC;
-
-    // 1 constructeur
-    public Temperature(String jr, int celcius)
-    {
-        journee = jr ;
-        degreC = celcius;
-    }
-
-    // 1 autre constructeur
-    public Temperature()
-    {
-
-    }
-
-    // pour la méthode mini
-    public boolean plusPetit(Temperature autre)
-    {
-        return degreC < autre.degreC ;
-    }
-
-    // pour le tri selon les journées
-    public boolean estInferieur(Temperature autre)
-    {
-        return journee.compareTo(autre.journee) < 0;
-    }
-
-    public void afficher()
-    {
-        System.out.printf("%12s  avec %8d degres Celcius\n", journee, degreC);
-    }
-
-
-}
-
 public class Trier2 {
 
-    static int mini(Temperature[] temp, int nbElem)
-    {
+    private static final Logger logger = LogManager.getLogger(Trier2.class);
+
+    static int mini(Temperature[] temp, int nbElem) {
         int k = 0;
         for (int i = 1; i < nbElem; i++)
-            if ( temp[i].plusPetit(temp[k]) )
+            if (temp[i].plusPetit(temp[k]))
                 k = i;
         return k;
     }
 
 
+    static void afficher(Temperature[] temp, int nbJrs, String mess) {
+        logger.info("Informations {} :", mess);
 
-    static void afficher(Temperature[] temp, int nbJrs, String mess)
-    {
-        System.out.printf("Informations %s :\n", mess);
-
-        for(int i = 0; i < nbJrs; i++)
-        {
-            System.out.printf("%3d) ", i);
+        for (int i = 0; i < nbJrs; i++) {
+            logger.info("{}) ", i);
             temp[i].afficher();
-
         }
-        System.out.printf("\n");
     }
 
 
-    static void trier(Temperature[] temp, int nbJrs)
-    {
-        for(int i = 0; i < nbJrs-1; i++)
-        {
+    static void trier(Temperature[] temp, int nbJrs) {
+        for (int i = 0; i < nbJrs - 1; i++) {
             int indMin = i;
-            for (int j = i+1; j < nbJrs; j++)
-                if ( temp[j].estInferieur(temp[indMin] ) )
+            for (int j = i + 1; j < nbJrs; j++)
+                if (temp[j].estInferieur(temp[indMin]))
                     indMin = j;
-            if ( indMin != i )
-            {
+            if (indMin != i) {
                 Temperature tempo = temp[i];
                 temp[i] = temp[indMin];
                 temp[indMin] = tempo;
@@ -90,23 +53,21 @@ public class Trier2 {
     }
 
 
-
     public static void main(String[] args) {
-        Temperature[] temp = { new Temperature("Lundi", -16), new Temperature("Mardi", -14), new Temperature("Mercredi",-9),
-                new Temperature("Jeudi",-18), new Temperature("Vendredi", -15), new Temperature("Samedi",-10),
-                new Temperature("Dimanche", -17) };
+        Temperature[] temp = {new Temperature("Lundi", -16), new Temperature("Mardi", -14), new Temperature("Mercredi", -9),
+                new Temperature("Jeudi", -18), new Temperature("Vendredi", -15), new Temperature("Samedi", -10),
+                new Temperature("Dimanche", -17)};
+
         int nbJrs = temp.length;
 
         afficher(temp, nbJrs, "au debut");
 
-
-        int indMin = mini (temp, nbJrs);
-        System.out.printf("Journee avec temperature minimale : ");
+        int indMin = mini(temp, nbJrs);
+        logger.info("Journee avec temperature minimale : ");
         temp[indMin].afficher();
 
         trier(temp, nbJrs);
         afficher(temp, nbJrs, "apres le tri selon les journees :");
-
     }
 }
 /* Exécution:

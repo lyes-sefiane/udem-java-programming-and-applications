@@ -1,63 +1,59 @@
 package io.github.lyes_sefiane;
 
-/* Écrire un programme en Java permettant
- *  - d'afficher le nombre de diviseurs de 720
- *  - d'afficher le nombre de diviseurs de 1000
- * - de découvrir un nombre entre 721 et 999
- *   qui a plus de diviseurs que 720
- *   puis on affiche ses diviseurs
- *
- *  Ce programme a été tapé et expliqué en classe.
- *
- *  IFT 1170
- */
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+/**
+ * @course : IFT 1170 Java Programming and Applications
+ * @university : University of Montreal
+ * @teacher : Van Nguyen Le
+ * @email : van.nguyen.le@umontreal.ca
+ * @student : Sefiane, Lyes
+ * @matricule : 20090833
+ * @email : lyes.sefiane@umontreal.ca
+ * @email : lyes.sefiane@gmail.com
+ * @date : 2017-04-19
+ */
 public class Diviseurs {
 
+    private static final Logger logger = LogManager.getLogger(Diviseurs.class);
 
-    // Cette méthode compte et retourne le nombre de diviseurs
-    // d'un nombre donné
-    static int nbDiv(int nombre)
-    {
+    static int nbDiv(int nombre) {
         int n = 0;
-        for(int candidat = 1 ; candidat <= nombre; candidat++)
-            if(nombre % candidat == 0)
+        for (int candidat = 1; candidat <= nombre; candidat++)
+            if (nombre % candidat == 0)
                 n++;
         return n;
     }
 
-    // On affiche les diviseurs d'un nombre (voir l'exécution)
-    static void afficherDiviseurs(int nombre)
-    {
-        System.out.printf("Le nombre %d a %d diviseurs. Ce sont :\n", nombre, nbDiv(nombre));
-        int rang = 0 ;
-        for(int candi = 1; candi <= nombre; candi++)
-            if (nombre % candi == 0)
-                System.out.printf("%3d) %10d\n", ++rang, candi) ;
-        System.out.printf("\n\n");
+    static void afficherDiviseurs(int nombre) {
+        logger.info("Le nombre {} a {} diviseurs. Ce sont :", nombre, nbDiv(nombre));
+        int rang = 0;
+        for (int candi = 1; candi <= nombre; candi++)
+            if (nombre % candi == 0) {
+                logger.info("{}) {}", ++rang, candi);
+            }
     }
 
     public static void main(String[] args) {
 
-        final int NOMBRE1 = 720,
-                NOMBRE2 = 1000;
+        final int nombre1 = 720;
+        final int nombre2 = 1000;
 
-        int k = nbDiv(NOMBRE1); // nombre de diviseurs de 720
+        int k = nbDiv(nombre1);
 
-        System.out.printf("Le nombre de diviseurs de %d est %d\n", NOMBRE1, k);
-        System.out.printf("Le nombre de diviseurs de %d est %d\n", NOMBRE2, Diviseurs.nbDiv(NOMBRE2));
+        logger.info("Le nombre de diviseurs de {} est {}", nombre1, k);
+        logger.info("Le nombre de diviseurs de {} est {}", nombre2, Diviseurs.nbDiv(nombre2));
 
         // découvrir un nombre entre 721 et 999 qui a plus de diviseurs que 720
-        for(int nombre = NOMBRE1 + 1 ; nombre < NOMBRE2; nombre++)
-            if (nbDiv(nombre) > k)
-            {
-                System.out.printf("Le nombre %d a plus de diviseurs que %d\n", nombre, NOMBRE1);
+        for (int nombre = nombre1 + 1; nombre < nombre2; nombre++)
+            if (nbDiv(nombre) > k) {
+                logger.info("Le nombre {} a plus de diviseurs que {}", nombre, nombre1);
                 Diviseurs.afficherDiviseurs(nombre);
             }
     }
-
-
 }
+
 /* Compilation et Exécution:
 --------------------Configuration: <Default>--------------------
 Le nombre de diviseurs de 720 est 30

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Coverage Report > Ex1StrA16</title>
+    <style type="text/css">
+        @import "../../css/coverage.css";
+        @import "../../css/idea.min.css";
+    </style>
+    <script type="text/javascript" src="../../js/highlight.min.js"></script>
+    <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+    <div class="breadCrumbs">
+        Current scope: <a href="../../../index.html">all classes</a>
+        <span class="separator">|</span>
+        <a href="../index.html">io.github.lyes_sefiane</a>
+    </div>
+
+    <h1>Coverage Summary for Class: Ex1StrA16 (io.github.lyes_sefiane)</h1>
+
+    <table class="coverageStats">
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Class, %
+            </th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Branch, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">Ex1StrA16</td>
+            <td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+                <span class="absValue">
+    (1/1)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    44.4%
+  </span>
+                <span class="absValue">
+    (4/9)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    62.5%
+  </span>
+                <span class="absValue">
+    (15/24)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    24.6%
+  </span>
+                <span class="absValue">
+    (16/65)
+  </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package io.github.lyes_sefiane;
+&nbsp;
+&nbsp;import org.apache.logging.log4j.LogManager;
+&nbsp;import org.apache.logging.log4j.Logger;
+&nbsp;
+&nbsp;/**
+&nbsp; * @course : IFT 1170 Java Programming and Applications
+&nbsp; * @university : University of Montreal
+&nbsp; * @teacher : Van Nguyen Le
+&nbsp; * @email : van.nguyen.le@umontreal.ca
+&nbsp; * @student : Sefiane, Lyes
+&nbsp; * @matricule : 20090833
+&nbsp; * @email : lyes.sefiane@umontreal.ca
+&nbsp; * @email : lyes.sefiane@gmail.com
+&nbsp; * @date : 2017-04-19
+&nbsp; */
+<b class="nc">&nbsp;class Ex1StrA16 {</b>
+&nbsp;
+<b class="fc">&nbsp;    private static final Logger logger = LogManager.getLogger(Ex1StrA16.class);</b>
+&nbsp;
+&nbsp;    private static final String BONNE_RENTREE_ET_BON_SUCCESS = &quot;Bonne rentree et bon succes!&quot;;
+&nbsp;    private static final String BONNE_RENTREE_ET_BON_SUCCESS_AU_IFT_1170_HIVER_2017 = &quot;Bonne rentree et bon succes au IFT 1170 Hiver 2017!&quot;;
+&nbsp;
+&nbsp;    static void demo1() {
+<b class="nc">&nbsp;        logger.info(&quot;Démo1 : quelques méthodes de String :&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        logger.info(&quot;Sa longueur : {} caracteres&quot;, BONNE_RENTREE_ET_BON_SUCCESS.length());</b>
+<b class="nc">&nbsp;        logger.info(&quot;Le caractère à l&#39;indice 0 : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.charAt(0));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Le caractère à l&#39;indice 2 : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.charAt(2));</b>
+&nbsp;
+<b class="nc">&nbsp;        logger.info(&quot;L&#39;indice du caractère B   : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.indexOf(&#39;B&#39;));</b>
+<b class="nc">&nbsp;        logger.info(&quot;L&#39;indice du caractère n   : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.indexOf(&#39;n&#39;));</b>
+<b class="nc">&nbsp;        logger.info(&quot;L&#39;indice du caractère z   : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.indexOf(&#39;z&#39;));</b>
+<b class="nc">&nbsp;        logger.info(&quot;L&#39;indice de Bon           : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.indexOf(&quot;Bon&quot;));</b>
+<b class="nc">&nbsp;        logger.info(&quot;L&#39;indice de rentree       : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.indexOf(&quot;rentree&quot;));</b>
+<b class="nc">&nbsp;        logger.info(&quot;L&#39;indice de Baba Ali      : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.indexOf(&quot;Baba Ali&quot;));</b>
+<b class="nc">&nbsp;        logger.info(&quot;L&#39;indice de la première lettre o   : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.indexOf(&#39;o&#39;));</b>
+<b class="nc">&nbsp;        logger.info(&quot;L&#39;indice de la deuxième lettre o   : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.indexOf(&#39;o&#39;, 6));</b>
+<b class="nc">&nbsp;        logger.info(&quot;L&#39;indice de dernière lettre s      : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.lastIndexOf(&#39;s&#39;));</b>
+&nbsp;
+<b class="nc">&nbsp;        logger.info(&quot;Sous-chaîne                        : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.substring(0, 5));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Sous-chaîne                        : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.substring(6, 13));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Sous-chaîne                        : {}&quot;, BONNE_RENTREE_ET_BON_SUCCESS.substring(14));</b>
+&nbsp;
+<b class="nc">&nbsp;        int entier = Integer.parseInt(&quot;1234&quot;);</b>
+<b class="nc">&nbsp;        logger.info(&quot;Après cette conversion, l&#39;entier vaut : {}&quot;, entier);</b>
+&nbsp;
+<b class="nc">&nbsp;        entier = Integer.parseInt(&quot;  1234      &quot;.trim());</b>
+<b class="nc">&nbsp;        logger.info(&quot;Après cette conversion, l&#39;entier vaut : {}&quot;, entier);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    static int nbFois(char carVoulu, String chaine) {
+<b class="fc">&nbsp;        int n = 0, nbCars = chaine.length();</b>
+<b class="fc">&nbsp;        for (int i = 0; i &lt; nbCars; i++)</b>
+<b class="fc">&nbsp;            if (chaine.charAt(i) == carVoulu)</b>
+<b class="fc">&nbsp;                n++;</b>
+<b class="fc">&nbsp;        return n;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    static int nbVoy(String chMaj) {
+<b class="fc">&nbsp;        int n = 0;</b>
+<b class="fc">&nbsp;        for (int i = 0, nbCars = chMaj.length(); i &lt; nbCars; i++)</b>
+<b class="pc">&nbsp;            switch (chMaj.charAt(i)) {</b>
+&nbsp;                case &#39;A&#39;:
+&nbsp;                case &#39;E&#39;:
+&nbsp;                case &#39;I&#39;:
+&nbsp;                case &#39;O&#39;:
+&nbsp;                case &#39;U&#39;:
+&nbsp;                case &#39;Y&#39;:
+<b class="fc">&nbsp;                    n++;</b>
+&nbsp;            }
+<b class="fc">&nbsp;        return n;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    static int nbVoy2(String ch) {
+<b class="fc">&nbsp;        int n = 0;</b>
+<b class="fc">&nbsp;        String voyelles = &quot;AaEeIiOoUuYy&quot;;</b>
+<b class="fc">&nbsp;        for (int i = 0, nbCars = ch.length(); i &lt; nbCars; i++) {</b>
+<b class="fc">&nbsp;            if (voyelles.indexOf(ch.charAt(i)) &gt;= 0) n++;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return n;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    static void demo2() {
+<b class="nc">&nbsp;        logger.info(&quot;Démo2 : quelques manipulations avec String :&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        logger.info(&quot;Le nombre de lettres  o dans cette chaîne : {}&quot;, nbFois(&#39;o&#39;, BONNE_RENTREE_ET_BON_SUCCESS_AU_IFT_1170_HIVER_2017));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Le nombre de lettres  n dans cette chaîne : {}&quot;, nbFois(&#39;n&#39;, BONNE_RENTREE_ET_BON_SUCCESS_AU_IFT_1170_HIVER_2017));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Le nombre de chiffres 1 dans cette chaîne : {}&quot;, nbFois(&#39;1&#39;, BONNE_RENTREE_ET_BON_SUCCESS_AU_IFT_1170_HIVER_2017));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Le nombre de lettres  v dans cette chaîne : {}&quot;, nbFois(&#39;v&#39;, BONNE_RENTREE_ET_BON_SUCCESS_AU_IFT_1170_HIVER_2017));</b>
+&nbsp;
+<b class="nc">&nbsp;        logger.info(&quot;Le nombre de voyelles dans cette chaîne : {}&quot;, nbVoy(BONNE_RENTREE_ET_BON_SUCCESS_AU_IFT_1170_HIVER_2017.toUpperCase()));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Le nombre de voyelles dans cette chaîne : {}&quot;, nbVoy2(BONNE_RENTREE_ET_BON_SUCCESS_AU_IFT_1170_HIVER_2017));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    static void demo3() {
+<b class="nc">&nbsp;        logger.info(&quot;Démo3 : quelques manipulations avec un numéro de telephone :&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        String telUdeM = &quot;5143436111&quot;;</b>
+&nbsp;
+<b class="nc">&nbsp;        String codeRegional = telUdeM.substring(0, 3);</b>
+<b class="nc">&nbsp;        String echange = telUdeM.substring(3, 6);</b>
+<b class="nc">&nbsp;        String numero = telUdeM.substring(6);</b>
+&nbsp;
+<b class="nc">&nbsp;        logger.info(&quot;Pour le numéro de téléphone : {}&quot;, telUdeM);</b>
+<b class="nc">&nbsp;        logger.info(&quot;  - le code régional    : {}&quot;, codeRegional);</b>
+<b class="nc">&nbsp;        logger.info(&quot;  - l&#39;échange           : {}&quot;, echange);</b>
+<b class="nc">&nbsp;        logger.info(&quot;  - le numéro           : {}&quot;, numero);</b>
+&nbsp;
+<b class="nc">&nbsp;        logger.info(&quot;Les chiffres pairs présentés dans {} : &quot;, telUdeM);</b>
+<b class="nc">&nbsp;        for (char c = &#39;0&#39;; c &lt;= &#39;8&#39;; c += 2) {</b>
+<b class="nc">&nbsp;            if (telUdeM.indexOf(c) &gt;= 0) {</b>
+<b class="nc">&nbsp;                logger.info(&quot;{} &quot;, c);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        logger.info(&quot;Les chiffres pairs rencontrés successivement dans {} : &quot;, telUdeM);</b>
+<b class="nc">&nbsp;        String pairs = &quot;02468&quot;;</b>
+&nbsp;
+<b class="nc">&nbsp;        for (int i = 0, nbCars = telUdeM.length(); i &lt; nbCars; i++) {</b>
+<b class="nc">&nbsp;            if (pairs.indexOf(telUdeM.charAt(i)) &gt;= 0) {</b>
+<b class="nc">&nbsp;                logger.info(&quot;{} &quot;, telUdeM.charAt(i));</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        Ex1StrA16.demo1();</b>
+<b class="nc">&nbsp;        Ex1StrA16.demo2();</b>
+<b class="nc">&nbsp;        demo3();</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;/* Exécution
+&nbsp;--------------------Configuration: &lt;Default&gt;--------------------
+&nbsp;Démo1 : quelques méthodes de String :
+&nbsp;
+&nbsp;Sa longueur : 28 caracteres
+&nbsp;Le caractère à l&#39;indice 0 : B
+&nbsp;Le caractère à l&#39;indice 2 : n
+&nbsp;
+&nbsp;L&#39;indice du caractère B   : 0
+&nbsp;L&#39;indice du caractère n   : 2
+&nbsp;L&#39;indice du caractère z   : -1
+&nbsp;
+&nbsp;L&#39;indice de Bon           : 0
+&nbsp;L&#39;indice de rentree       : 6
+&nbsp;L&#39;indice de Baba Ali      : -1
+&nbsp;
+&nbsp;L&#39;indice de la première lettre o   : 1
+&nbsp;L&#39;indice de la deuxième lettre o   : 18
+&nbsp;L&#39;indice de dernière lettre s      : 26
+&nbsp;
+&nbsp;Sous-chaîne                        : Bonne
+&nbsp;Sous-chaîne                        : rentree
+&nbsp;Sous-chaîne                        : et bon succes!
+&nbsp;
+&nbsp;Après cette conversion, l&#39;entier vaut : 1234
+&nbsp;
+&nbsp;Après cette conversion, l&#39;entier vaut : 1234
+&nbsp;
+&nbsp;
+&nbsp;Démo2 : quelques manipulations avec String :
+&nbsp;
+&nbsp;Le nombre de lettres  o dans cette chaîne : 3
+&nbsp;Le nombre de lettres  n dans cette chaîne : 5
+&nbsp;Le nombre de chiffres 1 dans cette chaîne : 3
+&nbsp;Le nombre de lettres  v dans cette chaîne : 0
+&nbsp;
+&nbsp;Le nombre de voyelles dans cette chaîne : 16
+&nbsp;Le nombre de voyelles dans cette chaîne : 16
+&nbsp;
+&nbsp;Démo3 : quelques manipulations avec un numéro de telephone :
+&nbsp;
+&nbsp;
+&nbsp;Pour le numéro de téléphone : 5143436111
+&nbsp;  - le code régional    : 514
+&nbsp;  - l&#39;échange           : 343
+&nbsp;  - le numéro           : 6111
+&nbsp;
+&nbsp;Les chiffres pairs présentés dans 5143436111 : 4 6
+&nbsp;
+&nbsp;
+&nbsp;Les chiffres pairs rencontrés successivement dans 5143436111 : 4 4 6
+&nbsp;
+&nbsp;
+&nbsp;Process completed.
+&nbsp;
+&nbsp;*/
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        var msie = false, msie9 = false;
+        /*@cc_on
+          msie = true;
+          @if (@_jscript_version >= 9)
+            msie9 = true;
+          @end
+        @*/
+
+        if (!msie || msie && msie9) {
+          hljs.highlightAll()
+          hljs.initLineNumbersOnLoad();
+        }
+    })();
+</script>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2025-05-30 13:31</div>
+</div>
+</body>
+</html>

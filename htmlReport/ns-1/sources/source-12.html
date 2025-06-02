@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Coverage Report > TestPays</title>
+    <style type="text/css">
+        @import "../../css/coverage.css";
+        @import "../../css/idea.min.css";
+    </style>
+    <script type="text/javascript" src="../../js/highlight.min.js"></script>
+    <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+    <div class="breadCrumbs">
+        Current scope: <a href="../../../index.html">all classes</a>
+        <span class="separator">|</span>
+        <a href="../index.html">io.github.lyes_sefiane</a>
+    </div>
+
+    <h1>Coverage Summary for Class: TestPays (io.github.lyes_sefiane)</h1>
+
+    <table class="coverageStats">
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Class, %
+            </th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Branch, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">TestPays</td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/1)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/22)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/78)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/195)
+  </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package io.github.lyes_sefiane;
+&nbsp;
+&nbsp;import java.io.*;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;/**
+&nbsp; * Matricule UdeM : 20090833
+&nbsp; * @author Lyes SEFIANE
+&nbsp; * IFT 1170
+&nbsp; * Java et ses applications
+&nbsp; * lyes.sefiane@umontreal.ca
+&nbsp; * lyes.sefiane@gmail.com
+&nbsp; */
+&nbsp;
+<b class="nc">&nbsp;public class TestPays {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Instantiation des objets Pays
+&nbsp;     */
+&nbsp;    public static void creePays(Pays[] pays, int nbLigne, String ligne) {
+&nbsp;
+&nbsp;        char codePays;
+&nbsp;        String nomPays;
+&nbsp;        String capitalePays;
+&nbsp;        int superficiePays;
+&nbsp;        int populationPays;
+&nbsp;
+<b class="nc">&nbsp;        codePays = ligne.charAt(0);</b>
+<b class="nc">&nbsp;        nomPays = ligne.substring(1,36).trim();</b>
+<b class="nc">&nbsp;        capitalePays = ligne.substring(36, 62).trim();</b>
+<b class="nc">&nbsp;        superficiePays = Integer.parseInt(ligne.substring(62, 70).trim());</b>
+<b class="nc">&nbsp;        populationPays = Integer.parseInt(ligne.substring(75).trim());</b>
+<b class="nc">&nbsp;        pays[nbLigne] = new Pays(codePays, nomPays, capitalePays,</b>
+&nbsp;                superficiePays, populationPays);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Lecture du ficher de données
+&nbsp;     */
+&nbsp;    public static int lirePays(String fichierAlire, Pays[] pays) throws IOException {
+&nbsp;
+<b class="nc">&nbsp;        int nbLigne = 0;</b>
+<b class="nc">&nbsp;        boolean existeFichier = false;</b>
+&nbsp;
+<b class="nc">&nbsp;        InputStream fr = TestPays.class.getClassLoader().getResourceAsStream(fichierAlire);</b>
+<b class="nc">&nbsp;        if(!existeFichier) {</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Debut de lecture du fichier %s ..\n\n&quot;, fichierAlire);</b>
+<b class="nc">&nbsp;            BufferedReader entree = new BufferedReader(new InputStreamReader(fr));</b>
+<b class="nc">&nbsp;            boolean finFichier = false;</b>
+&nbsp;
+<b class="nc">&nbsp;            while (!finFichier ){</b>
+<b class="nc">&nbsp;                String uneLigne = entree.readLine();</b>
+<b class="nc">&nbsp;                if(uneLigne == null)</b>
+<b class="nc">&nbsp;                    finFichier = true;</b>
+&nbsp;                else {
+<b class="nc">&nbsp;                    creePays(pays, nbLigne, uneLigne);</b>
+<b class="nc">&nbsp;                    nbLigne++;</b>
+&nbsp;                }
+&nbsp;            }
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Nombre de pays lu est : %d \n\n&quot;, nbLigne);</b>
+&nbsp;            entree.close();
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Fin de lecture du fichier %s \n\n&quot;, fichierAlire);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return nbLigne;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Affichage des informations des Pays
+&nbsp;     * En redefinissant la methode toString()
+&nbsp;     */
+&nbsp;    public static void affichePays(Pays[] pays, int nbPaysAfficher) {
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot;+ Information des %d pays \n&quot;, nbPaysAfficher);</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot;%6s %28s  %22s %14s %20s\n&quot;, &quot;Code&quot;, &quot;NomPays&quot;,</b>
+&nbsp;                &quot;Capitale&quot;, &quot;Superficie&quot;, &quot;Population&quot;);
+&nbsp;
+<b class="nc">&nbsp;        for(int i = 0 ; i &lt; nbPaysAfficher; i++)</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;%s\n&quot;, pays[i]);</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot;\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Recherche de l&#39;indice d&#39;un pays dans le tableau
+&nbsp;     */
+&nbsp;    private static int rechercheIndice(Pays[] pays, Pays aChercher, int nbPays) {
+&nbsp;
+<b class="nc">&nbsp;        int trouve = -1;</b>
+<b class="nc">&nbsp;        int i = 0;</b>
+&nbsp;
+<b class="nc">&nbsp;        while (i &lt; nbPays){</b>
+<b class="nc">&nbsp;            if (pays[i].equals(aChercher))// Recherche Basée sur redéfinition de equals</b>
+<b class="nc">&nbsp;                trouve = i;</b>
+<b class="nc">&nbsp;            i++;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return trouve;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Modification du code continent d&#39;un Pays
+&nbsp;     */
+&nbsp;    public static void modifierCodeContient(Pays[] pays, String nomPays,
+&nbsp;                                            char newCode, int nbPays) {
+&nbsp;
+<b class="nc">&nbsp;        Pays aChercher = new Pays(&#39;0&#39;,nomPays,&quot;&quot;,0,0); // Création d&#39;un objet pays</b>
+<b class="nc">&nbsp;        int indice = rechercheIndice (pays, aChercher, nbPays);</b>
+<b class="nc">&nbsp;        if(indice == -1){</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;Pays %s existe pas... \n\n&quot;, nomPays);</b>
+&nbsp;        }
+&nbsp;        else{
+<b class="nc">&nbsp;            pays[indice].setCodeContinent(newCode);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Code Continent du pays &#39;%s&#39; modifié \n&quot;, nomPays);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;%s&quot;, pays[indice]);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;\n\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Modification de la capitale d&#39;un pays
+&nbsp;     */
+&nbsp;    public static void modifierCapitale(Pays[] pays, String nomPays,
+&nbsp;                                        String newCapitale, int nbPays) {
+&nbsp;
+<b class="nc">&nbsp;        Pays aChercher = new Pays(&#39;0&#39;,nomPays,&quot;&quot;,0,0);// Création d&#39;un objet pays</b>
+<b class="nc">&nbsp;        int indice = rechercheIndice (pays, aChercher, nbPays);</b>
+&nbsp;
+<b class="nc">&nbsp;        if(indice == -1){</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;Pays %s existe pas... \n\n&quot;, nomPays);</b>
+&nbsp;        }
+&nbsp;        else{
+<b class="nc">&nbsp;            pays[indice].setCapitalePays(newCapitale);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Capitale du pays &#39;%s&#39; modifié \n&quot;, nomPays);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;%s&quot;, pays[indice]);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;\n\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Modification de la population d&#39;un pays
+&nbsp;     * Avec un multiplicateur.
+&nbsp;     * Ex :  10 x Population de ce même pays
+&nbsp;     */
+&nbsp;    public static void modifierPopulation(Pays[] pays, String nomPays,
+&nbsp;                                          int multiplicateur, int nbPays) {
+&nbsp;
+<b class="nc">&nbsp;        Pays aChercher = new Pays(&#39;0&#39;,nomPays,&quot;&quot;,0,0); // Création d&#39;un objet pays</b>
+<b class="nc">&nbsp;        int indice = rechercheIndice (pays, aChercher, nbPays);</b>
+&nbsp;
+<b class="nc">&nbsp;        if(indice == -1){</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;Pays %s existe pas... \n\n&quot;, nomPays);</b>
+&nbsp;        }
+&nbsp;        else{
+<b class="nc">&nbsp;            pays[indice].setPopulationPays(</b>
+<b class="nc">&nbsp;                    pays[indice].getPopulationPays() * multiplicateur);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Population du pays &#39;%s&#39; modifié \n&quot;, nomPays);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;%s&quot;, pays[indice]);</b>
+&nbsp;
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;\n\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Supression d&#39;un pays du tableau :
+&nbsp;     * 1. On cherche son indice
+&nbsp;     * 2. S&#39;il existe on supprime
+&nbsp;     */
+&nbsp;    public static int supprimerPays(Pays[] pays, String nomPays, int nbPays) {
+<b class="nc">&nbsp;        Pays aChercher = new Pays(&#39;0&#39;,nomPays,&quot;&quot;,0,0);// Création d&#39;un objet pays</b>
+<b class="nc">&nbsp;        int indice = rechercheIndice (pays, aChercher, nbPays);//Chercher son indice</b>
+<b class="nc">&nbsp;        if(indice == -1){</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;Pays %s à supprimer existe pas... \n\n&quot;, nomPays);</b>
+<b class="nc">&nbsp;            return nbPays;</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot;+ Suppression de &#39;%s&#39; ... \n\n&quot;, nomPays);</b>
+<b class="nc">&nbsp;        for(int i = indice; i &lt; nbPays -1; i++)</b>
+<b class="nc">&nbsp;            pays[i] = pays[i+1];</b>
+&nbsp;
+<b class="nc">&nbsp;        return (nbPays - 1);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Augmentation de la population des pays
+&nbsp;     * d&#39;un continent donné. Ex :
+&nbsp;     * Augmentation de la population des pays du continent Europe (code &#39;5&#39;)
+&nbsp;     */
+&nbsp;    public static void augmentationPopulation(	Pays[] pays,
+&nbsp;                                                  double pourcentage,
+&nbsp;                                                  int nbPays,
+&nbsp;                                                  char codePays) {
+<b class="nc">&nbsp;        System.out.printf(&quot;+ Augmentation de la population des pays &quot;+</b>
+<b class="nc">&nbsp;                &quot;du continent %c \n\n&quot;, codePays);</b>
+&nbsp;
+<b class="nc">&nbsp;        for(int i = 0; i &lt; nbPays; i++){</b>
+<b class="nc">&nbsp;            if(pays[i].getCodeContinent() == codePays)</b>
+<b class="nc">&nbsp;                pays[i].setPopulationPays(</b>
+<b class="nc">&nbsp;                        (int) Math.round( (pays[i].getPopulationPays() +</b>
+<b class="nc">&nbsp;                                (pays[i].getPopulationPays() * pourcentage) /100)));</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Affichage des pays dont le nom est identique à la capitale
+&nbsp;     * Recherche séquentielle de tout les pays et test égalité
+&nbsp;     * entre nomPays et capitalePays
+&nbsp;     */
+&nbsp;    public static void afficheIdentique(Pays[] pays, int nbPays) {
+<b class="nc">&nbsp;        System.out.println(&quot;+ Pays dont le nom est identique au nom de la capitale\n&quot;);</b>
+<b class="nc">&nbsp;        for(int i = 0; i&lt; nbPays; i++){</b>
+<b class="nc">&nbsp;            if(pays[i].getNomPays().equalsIgnoreCase(pays[i].getCapitalePays()))</b>
+<b class="nc">&nbsp;                System.out.printf(&quot;%s\n&quot;, pays[i]);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Determine le pays ayant la plus petite densité dans un continent donné
+&nbsp;     */
+&nbsp;    public static void densiteMin(Pays[] pays, int nbPays, char codeContinent) {
+<b class="nc">&nbsp;        float mini = Float.MAX_VALUE; // variable de comparaison des densités</b>
+<b class="nc">&nbsp;        int indiceMini = 0; // indice du pays dont la densité est petite.</b>
+<b class="nc">&nbsp;        for(int i = 0; i &lt; nbPays; i++){</b>
+<b class="nc">&nbsp;            if(pays[i].getCodeContinent() == codeContinent){</b>
+<b class="nc">&nbsp;                if(pays[i].densite() &lt; mini){</b>
+<b class="nc">&nbsp;                    mini = pays[i].densite();</b>
+<b class="nc">&nbsp;                    indiceMini = i;</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;+ Pays &#39;%s&#39; a la plus petite densité (%.2f hab/Km²) &quot;+</b>
+&nbsp;                        &quot;du continent %c \n%s\n\n&quot;,
+<b class="nc">&nbsp;                pays[indiceMini].getNomPays(),</b>
+<b class="nc">&nbsp;                mini,</b>
+<b class="nc">&nbsp;                codeContinent,</b>
+&nbsp;                pays[indiceMini]);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Determine le pays le plus peuplé d&#39;un continent donné
+&nbsp;     */
+&nbsp;    private static void paysPeuple(Pays[] pays, int nbPays, char codeContinent) {
+<b class="nc">&nbsp;        int maxi = Integer.MIN_VALUE; // variable de comparaison des populations</b>
+<b class="nc">&nbsp;        int indiceMaxi = 0; // indice du pays dont la densité est petite.</b>
+<b class="nc">&nbsp;        for(int i = 0; i &lt; nbPays; i++ ){</b>
+<b class="nc">&nbsp;            if(pays[i].getCodeContinent() == codeContinent){</b>
+<b class="nc">&nbsp;                if(pays[i].getPopulationPays() &gt; maxi){</b>
+<b class="nc">&nbsp;                    maxi = pays[i].getPopulationPays();</b>
+<b class="nc">&nbsp;                    indiceMaxi = i;</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;+ Pays &#39;%s&#39; a la plus grande population (%d hab) &quot;+</b>
+&nbsp;                        &quot;du continent %c \n%s\n\n&quot;,
+<b class="nc">&nbsp;                pays[indiceMaxi].getNomPays(),</b>
+<b class="nc">&nbsp;                pays[indiceMaxi].getPopulationPays(),</b>
+<b class="nc">&nbsp;                codeContinent,</b>
+&nbsp;                pays[indiceMaxi]);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Cherche et Affiche les payes dont le nom commence par une Voyelle
+&nbsp;     */
+&nbsp;    public static void paysStartVoyelle(Pays[] pays, int nbPays) {
+<b class="nc">&nbsp;        String voyelle=&quot;AaEeIiOoUuYy&quot;;</b>
+<b class="nc">&nbsp;        System.out.println(&quot;+ Pays dont le nom commence par une voyelle&quot;);</b>
+<b class="nc">&nbsp;        for(int i = 0; i &lt; nbPays; i++){</b>
+<b class="nc">&nbsp;            if(voyelle.indexOf(pays[i].getNomPays().charAt(0)) &gt;= 0)</b>
+<b class="nc">&nbsp;                System.out.printf(&quot;%s\n&quot;, pays[i]);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;\n\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Determine le nombre de lettres alphabétiques
+&nbsp;     * Dans une chaine de caractere
+&nbsp;     */
+&nbsp;    public static int compterAlphabet(String chaine){
+<b class="nc">&nbsp;        int size = 0;</b>
+<b class="nc">&nbsp;        for(int i = 0; i &lt; chaine.length(); i++){</b>
+<b class="nc">&nbsp;            if( Character.isLetter(chaine.charAt(i)))</b>
+<b class="nc">&nbsp;                size++;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return size;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Determine et Affiche les informations du pays dont
+&nbsp;     * le nom de la capitale à le plus de lettres alphabétiques
+&nbsp;     */
+&nbsp;    private static void capitaleMaxAlpha(Pays[] pays, int nbPays, char codeContinent) {
+<b class="nc">&nbsp;        int maxLenght = Integer.MIN_VALUE;</b>
+<b class="nc">&nbsp;        int indiceMaxi=0;</b>
+<b class="nc">&nbsp;        for(int i =0; i &lt; nbPays; i++){</b>
+<b class="nc">&nbsp;            if(pays[i].getCodeContinent() == codeContinent){</b>
+<b class="nc">&nbsp;                int size = compterAlphabet(pays[i].getCapitalePays());</b>
+<b class="nc">&nbsp;                if(size &gt; maxLenght) {</b>
+<b class="nc">&nbsp;                    maxLenght = size;</b>
+<b class="nc">&nbsp;                    indiceMaxi = i;</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.printf(&quot;+ Pays &#39;%s&#39; a la capitale\n&quot;+</b>
+&nbsp;                        &quot;contenant le plus de lettres alphabétiques (%d Lettres) &quot;+
+<b class="nc">&nbsp;                        &quot;du continent %c \n\n%s\n\n&quot;, pays[indiceMaxi].getNomPays(),</b>
+<b class="nc">&nbsp;                maxLenght,</b>
+<b class="nc">&nbsp;                codeContinent,</b>
+&nbsp;                pays[indiceMaxi]);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Permutation entre deux pays
+&nbsp;     */
+&nbsp;    public static void permuter(Pays[] pays, int i, int j) {
+<b class="nc">&nbsp;        Pays tempo = pays[i];</b>
+<b class="nc">&nbsp;        pays[i] = pays[j];</b>
+<b class="nc">&nbsp;        pays[j] = tempo;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Tri rapide du tableau des pays
+&nbsp;     * Basé sur l&#39;implémentation de compareTo()
+&nbsp;     */
+&nbsp;    public static void quickSort(Pays [] pays, int nbPays){
+<b class="nc">&nbsp;        System.out.println(&quot;+ Tri des pays en cours ...&quot;);</b>
+<b class="nc">&nbsp;        for(int i = 0; i &lt; (nbPays - 1); i++)</b>
+&nbsp;        {
+<b class="nc">&nbsp;            int indMin = i;</b>
+<b class="nc">&nbsp;            for(int j = i+1; j &lt; nbPays; j++)</b>
+<b class="nc">&nbsp;                if(pays[j].compareTo(pays[indMin]) &lt; 0)</b>
+<b class="nc">&nbsp;                    indMin = j;</b>
+<b class="nc">&nbsp;            if (indMin != i)</b>
+<b class="nc">&nbsp;                permuter(pays, i, indMin);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Recherche dichotomique de l&#39;indice d&#39;un pays
+&nbsp;     */
+&nbsp;    static int indiceDicho(Pays[] pays, int nbPays, Pays aCherche) {
+&nbsp;
+<b class="nc">&nbsp;        int mini = 0, maxi = nbPays - 1;</b>
+<b class="nc">&nbsp;        while (mini &lt;= maxi){</b>
+<b class="nc">&nbsp;            int milieu = (mini + maxi) / 2;</b>
+<b class="nc">&nbsp;            if (aCherche.compareTo(pays[milieu]) &lt;= -1)</b>
+<b class="nc">&nbsp;                maxi = milieu - 1;</b>
+&nbsp;            else
+<b class="nc">&nbsp;            if (aCherche.compareTo(pays[milieu]) &gt;= 1)</b>
+<b class="nc">&nbsp;                mini = milieu + 1;</b>
+&nbsp;            else
+<b class="nc">&nbsp;                return milieu;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return -1;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Affichage du résultat de la recherche dichotomique
+&nbsp;     */
+&nbsp;    public static void rechercheDichotomique(Pays[] pays, int nbPays,
+&nbsp;                                             String nomPays) {
+<b class="nc">&nbsp;        Pays aChercher = new Pays(&#39;0&#39;,nomPays,&quot;&quot;,0,0);// Création d&#39;un objet pays</b>
+<b class="nc">&nbsp;        int k = indiceDicho(pays, nbPays, aChercher); // Chercher son indice</b>
+<b class="nc">&nbsp;        if (k != -1) {</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;+ On trouve &#39;%s&#39; à l&#39;indice %d\n&quot;, nomPays, k);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;%s\n&quot;, pays[k]);</b>
+&nbsp;        }
+&nbsp;        else
+<b class="nc">&nbsp;            System.out.printf(&quot;On ne trouve pas le pays : &#39;%s&#39;\n\n&quot;, nomPays);</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot;\n&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Création d&#39;un fichier.txt
+&nbsp;     */
+&nbsp;    public static void creeFichier(	String nomFichier,
+&nbsp;                                       Pays[] pays,
+&nbsp;                                       int nbPays,
+&nbsp;                                       char codeContinent) throws IOException {
+<b class="nc">&nbsp;        boolean probleme = false;</b>
+<b class="nc">&nbsp;        FileWriter fw = null;</b>
+&nbsp;        try
+&nbsp;        {
+<b class="nc">&nbsp;            fw = new FileWriter(nomFichier);</b>
+&nbsp;        } catch (java.io.FileNotFoundException erreur)
+&nbsp;        {
+<b class="nc">&nbsp;            System.out.println(&quot;+ Probleme de preparer l&#39;ecriture\n&quot;);</b>
+<b class="nc">&nbsp;            probleme = true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (!probleme)</b>
+&nbsp;        {
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Creation du Fichier %s\n&quot;, nomFichier);</b>
+<b class="nc">&nbsp;            PrintWriter aCreer = new PrintWriter( fw );</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;+ Ecriture en cours...\n&quot;);</b>
+<b class="nc">&nbsp;            for(int i = 0; i &lt; nbPays; i++){</b>
+<b class="nc">&nbsp;                if(pays[i].getCodeContinent() == codeContinent)</b>
+<b class="nc">&nbsp;                    aCreer.printf(&quot;%s\n&quot;, pays[i]);</b>
+&nbsp;            }
+&nbsp;            aCreer.close();
+<b class="nc">&nbsp;            System.out.println(&quot;+ Fin d&#39;ecriture\n\n&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void main(String[] args) throws IOException {
+&nbsp;
+<b class="nc">&nbsp;        final int MAX_PAYS = 250;</b>
+&nbsp;
+<b class="nc">&nbsp;        Pays[] pays = new Pays[MAX_PAYS];</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t----------------------------&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t- Exercice numéro B du TP2 -&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\t\t----------------------------\n&quot;);</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        int nbPays = lirePays (&quot;pays_h17.txt&quot;, pays);</b>
+&nbsp;
+<b class="nc">&nbsp;        affichePays(pays, 12);</b>
+&nbsp;
+&nbsp;        // Code Continent : ‘5’ pour Europe
+<b class="nc">&nbsp;        modifierCodeContient(pays, &quot;Russie&quot;, &#39;5&#39;, nbPays);</b>
+&nbsp;
+<b class="nc">&nbsp;        modifierCapitale(pays, &quot;Chine&quot;, &quot;Pekin&quot;, nbPays);</b>
+&nbsp;
+<b class="nc">&nbsp;        modifierPopulation(pays, &quot;Allemagne&quot;, 10, nbPays);</b>
+&nbsp;
+<b class="nc">&nbsp;        nbPays = supprimerPays(pays,&quot;DES OURAGANS&quot;, nbPays);</b>
+&nbsp;
+&nbsp;        // Code Continent : ‘1’ pour Afrique
+<b class="nc">&nbsp;        augmentationPopulation(pays, 3.5, nbPays, &#39;1&#39;);</b>
+&nbsp;
+&nbsp;        // Code Continent : ‘3’ pour Asie
+<b class="nc">&nbsp;        augmentationPopulation(pays, 3.5, nbPays, &#39;3&#39;);</b>
+&nbsp;
+<b class="nc">&nbsp;        affichePays(pays, 16);</b>
+&nbsp;
+<b class="nc">&nbsp;        afficheIdentique(pays, nbPays);</b>
+&nbsp;
+&nbsp;        // Code Continent : ‘1’ pour Afrique
+<b class="nc">&nbsp;        densiteMin(pays, nbPays, &#39;1&#39;);</b>
+&nbsp;
+&nbsp;        // Code Continent : ‘2’ pour Amérique
+<b class="nc">&nbsp;        densiteMin(pays, nbPays, &#39;2&#39;);</b>
+&nbsp;
+&nbsp;        // Code Continent : ‘5’ pour Europe
+<b class="nc">&nbsp;        paysPeuple(pays, nbPays, &#39;5&#39;);</b>
+&nbsp;
+&nbsp;        // Code Continent : ‘1’ pour Afrique
+<b class="nc">&nbsp;        paysPeuple(pays, nbPays, &#39;1&#39;);</b>
+&nbsp;
+<b class="nc">&nbsp;        paysStartVoyelle(pays, nbPays);</b>
+&nbsp;
+&nbsp;        // Code Continent : ‘4’ pour Océanie
+<b class="nc">&nbsp;        capitaleMaxAlpha(pays, nbPays, &#39;4&#39;);</b>
+&nbsp;
+<b class="nc">&nbsp;        quickSort(pays, nbPays);</b>
+&nbsp;
+<b class="nc">&nbsp;        affichePays(pays, 10);</b>
+&nbsp;
+<b class="nc">&nbsp;        rechercheDichotomique(pays, nbPays, &quot;Canada&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        rechercheDichotomique(pays, nbPays, &quot;France&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        rechercheDichotomique(pays, nbPays, &quot;Japon&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        rechercheDichotomique(pays, nbPays, &quot;Mexique&quot;);</b>
+&nbsp;
+&nbsp;        // Code Continent : ‘4’ pour Océanie
+<b class="nc">&nbsp;        creeFichier(&quot;Oceanie.txt&quot;, pays, nbPays, &#39;4&#39;);</b>
+&nbsp;
+&nbsp;        // Code Continent : ‘3’ pour Asie
+<b class="nc">&nbsp;        creeFichier(&quot;Asie.txt &quot;, pays, nbPays, &#39;3&#39;);</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;/*
+&nbsp;		----------------------------
+&nbsp;		- Exercice numéro B du TP2 -
+&nbsp;		----------------------------
+&nbsp;
+&nbsp;+ Debut de lecture du fichier pays_h17.txt ..
+&nbsp;
+&nbsp;+ Nombre de pays lu est : 198
+&nbsp;
+&nbsp;+ Fin de lecture du fichier pays_h17.txt
+&nbsp;
+&nbsp;+ Information des 12 pays
+&nbsp;  Code                      NomPays                Capitale     Superficie           Population
+&nbsp;   2                     ETATS-UNIS             WASHINGTON     9629047 km²           291289535
+&nbsp;   3                          CHINE               SHANGHAI     9596960 km²          1273111290
+&nbsp;   2                         RUSSIE                 MOSCOU    17075400 km²           143954573
+&nbsp;   4                      AUSTRALIE               CANBERRA     7686850 km²            19834248
+&nbsp;   3                          JAPON                  TOKYO      377835 km²            12761000
+&nbsp;   4                   DES OURAGANS                TEMPETE           1 km²                   1
+&nbsp;   5                      ALLEMAGNE                 BERLIN      357027 km²             8253700
+&nbsp;   5                         FRANCE              MARSEILLE      543964 km²            61387038
+&nbsp;   5                         ITALIE                   ROME      301230 km²            57715620
+&nbsp;   3                   COREE DU SUD                  SEOUL       99274 km²            48324000
+&nbsp;   5                    ROYAUME-UNI                LONDRES      244101 km²            58789194
+&nbsp;   2                           CUBA              LA HAVANE      100860 km²            11184023
+&nbsp;
+&nbsp;+ Code Continent du pays &#39;Russie&#39; modifié
+&nbsp;   5                         RUSSIE                 MOSCOU    17075400 km²           143954573
+&nbsp;
+&nbsp;+ Capitale du pays &#39;Chine&#39; modifié
+&nbsp;   3                          CHINE                  Pekin     9596960 km²          1273111290
+&nbsp;
+&nbsp;+ Population du pays &#39;Allemagne&#39; modifié
+&nbsp;   5                      ALLEMAGNE                 BERLIN      357027 km²            82537000
+&nbsp;
+&nbsp;+ Suppression de &#39;DES OURAGANS&#39; ...
+&nbsp;
+&nbsp;+ Augmentation de la population des pays du continent 1
+&nbsp;
+&nbsp;+ Augmentation de la population des pays du continent 3
+&nbsp;
+&nbsp;+ Information des 16 pays
+&nbsp;  Code                      NomPays                Capitale     Superficie           Population
+&nbsp;   2                     ETATS-UNIS             WASHINGTON     9629047 km²           291289535
+&nbsp;   3                          CHINE                  Pekin     9596960 km²          1317670185
+&nbsp;   5                         RUSSIE                 MOSCOU    17075400 km²           143954573
+&nbsp;   4                      AUSTRALIE               CANBERRA     7686850 km²            19834248
+&nbsp;   3                          JAPON                  TOKYO      377835 km²            13207635
+&nbsp;   5                      ALLEMAGNE                 BERLIN      357027 km²            82537000
+&nbsp;   5                         FRANCE              MARSEILLE      543964 km²            61387038
+&nbsp;   5                         ITALIE                   ROME      301230 km²            57715620
+&nbsp;   3                   COREE DU SUD                  SEOUL       99274 km²            50015340
+&nbsp;   5                    ROYAUME-UNI                LONDRES      244101 km²            58789194
+&nbsp;   2                           CUBA              LA HAVANE      100860 km²            11184023
+&nbsp;   5                        UKRAINE                   KIEV      603700 km²            48396470
+&nbsp;   5                        HONGRIE               BUDAPEST       93030 km²            10106017
+&nbsp;   5                       ROUMANIE               BUCAREST      238390 km²            22272000
+&nbsp;   5                          GRECE                ATHENES      131940 km²            10623835
+&nbsp;   5                        NORVEGE                   OSLO      324220 km²             4525116
+&nbsp;
+&nbsp;+ Pays dont le nom est identique au nom de la capitale
+&nbsp;
+&nbsp;   1                       DJIBOUTI               DJIBOUTI       22000 km²              476825
+&nbsp;   3                         KOWEIT                 KOWEIT       17820 km²             2113430
+&nbsp;   5                     LUXEMBOURG             LUXEMBOURG        2586 km²              442972
+&nbsp;   5                         MONACO                 MONACO         195 km²               31842
+&nbsp;   2                         PANAMA                 PANAMA       78200 km²             2845647
+&nbsp;   5                    SAINT MARIN            SAINT MARIN          61 km²               27336
+&nbsp;   1                       SAO TOME               SAO TOME        1001 km²              170810
+&nbsp;
+&nbsp;+ Pays &#39;MAURITANIE&#39; a la plus petite densité (2,02 hab/Km²) du continent 1
+&nbsp;   1                     MAURITANIE             NOUAKCHOTT     1026000 km²             2070000
+&nbsp;
+&nbsp;+ Pays &#39;SURINAME&#39; a la plus petite densité (2,66 hab/Km²) du continent 2
+&nbsp;   2                       SURINAME             PARAMARIBO      163270 km²              433998
+&nbsp;
+&nbsp;+ Pays &#39;RUSSIE&#39; a la plus grande population (143954573 hab) du continent 5
+&nbsp;   5                         RUSSIE                 MOSCOU    17075400 km²           143954573
+&nbsp;
+&nbsp;+ Pays &#39;NIGERIA&#39; a la plus grande population (138567563 hab) du continent 1
+&nbsp;   1                        NIGERIA                  ABUJA      923768 km²           138567563
+&nbsp;
+&nbsp;+ Pays dont le nom commence par une voyelle
+&nbsp;   2                     ETATS-UNIS             WASHINGTON     9629047 km²           291289535
+&nbsp;   4                      AUSTRALIE               CANBERRA     7686850 km²            19834248
+&nbsp;   5                      ALLEMAGNE                 BERLIN      357027 km²            82537000
+&nbsp;   5                         ITALIE                   ROME      301230 km²            57715620
+&nbsp;   5                        UKRAINE                   KIEV      603700 km²            48396470
+&nbsp;   5                        ESPAGNE                 MADRID      504782 km²            40037995
+&nbsp;   5                       AUTRICHE                 VIENNE       83858 km²             8150835
+&nbsp;   1                       ETHIOPIE            ADDIS-ABEBA     1127127 km²            70041587
+&nbsp;   3                           IRAN                TEHERAN     1648000 km²            78660000
+&nbsp;   3                    OUZBEKISTAN               TACHKENT      447400 km²            26458161
+&nbsp;   2                      ARGENTINE           BUENOS AIRES     2766890 km²            37812817
+&nbsp;   1                 AFRIQUE DU SUD               PRETORIA     1219912 km²            44213679
+&nbsp;   1                         EGYPTE               LE CAIRE      995450 km²            77333955
+&nbsp;   3                      INDONESIE               DJAKARTA     1919440 km²           236433195
+&nbsp;   3                    AZERBAIDJAN                   BAKU       86100 km²             8104841
+&nbsp;   5                         ISRAEL              JERUSALEM       20770 km²             6116533
+&nbsp;   3            EMIRATS ARABES UNIS             ABOU DHABI       82880 km²             2491721
+&nbsp;   5                        ESTONIE                 TALINN       45226 km²             1401945
+&nbsp;   3                           INDE              NEW DELHI     3287590 km²          1066040835
+&nbsp;   1                       ERYTHREE                 ASMARA      121320 km²             4621949
+&nbsp;   3                    AFGHANISTAN                 KABOUL      652225 km²            30581226
+&nbsp;   5                        ALBANIE                 TIRANA       28748 km²             3510484
+&nbsp;   1                        ALGERIE                  ALGER     2381740 km²            32874760
+&nbsp;   5                        ANDORRE       ANDORRA LA VELLA         468 km²               67627
+&nbsp;   1                         ANGOLA                 LUANDA     1246700 km²            11143297
+&nbsp;   2             ANTIGUA-ET-BARBUDA            SAINT-JOHNS         442 km²               67448
+&nbsp;   2         ANTILLES NEERLANDAISES             WILLEMSTAD         800 km²              210000
+&nbsp;   3                ARABIE SAOUDITE                  RIYAD     1960582 km²            24336297
+&nbsp;   3                        ARMENIE                 EREVAN       29800 km²             3442874
+&nbsp;   2                          ARUBA             ORANJESTAD         193 km²               69000
+&nbsp;   2                    EL SALVADOR           SAN SALVADOR       21041 km²             6122075
+&nbsp;   2                       EQUATEUR                  QUITO      283560 km²            13183978
+&nbsp;   2                   ILES CAIMANS            GEORGE TOWN         262 km²               39000
+&nbsp;   4                   ILES SALOMON                HONIARA       28450 km²              480442
+&nbsp;   2      ILES VIERGES BRITANNIQUES              ROAD TOWN         153 km²               19000
+&nbsp;   3                           IRAK                 BAGDAD      437072 km²            24148604
+&nbsp;   5                        IRLANDE                 DUBLIN       70273 km²             3917336
+&nbsp;   5                        ISLANDE              REYKJAVIC      103125 km²              288201
+&nbsp;   3                           OMAN                MASCATE      212460 km²             2713975
+&nbsp;   1                        OUGANDA                KAMPALA      236040 km²            25563541
+&nbsp;   2                        URUGUAY             MONTEVIDEO      176220 km²             3360105
+&nbsp;   3                          YEMEN                  SANAA      527970 km²            20027127
+&nbsp;
+&nbsp;
+&nbsp;+ Pays &#39;PAPOUASIE-NOUVELLE-GUINEE&#39; a la capitale
+&nbsp;contenant le plus de lettres alphabétiques (11 Lettres) du continent 4
+&nbsp;
+&nbsp;   4      PAPOUASIE-NOUVELLE-GUINEE           PORT MORESBY      462840 km²             4927000
+&nbsp;
+&nbsp;+ Tri des pays en cours ...
+&nbsp;+ Information des 10 pays
+&nbsp;  Code                      NomPays                Capitale     Superficie           Population
+&nbsp;   3                    AFGHANISTAN                 KABOUL      652225 km²            30581226
+&nbsp;   1                 AFRIQUE DU SUD               PRETORIA     1219912 km²            44213679
+&nbsp;   5                        ALBANIE                 TIRANA       28748 km²             3510484
+&nbsp;   1                        ALGERIE                  ALGER     2381740 km²            32874760
+&nbsp;   5                      ALLEMAGNE                 BERLIN      357027 km²            82537000
+&nbsp;   5                        ANDORRE       ANDORRA LA VELLA         468 km²               67627
+&nbsp;   1                         ANGOLA                 LUANDA     1246700 km²            11143297
+&nbsp;   2             ANTIGUA-ET-BARBUDA            SAINT-JOHNS         442 km²               67448
+&nbsp;   2         ANTILLES NEERLANDAISES             WILLEMSTAD         800 km²              210000
+&nbsp;   3                ARABIE SAOUDITE                  RIYAD     1960582 km²            24336297
+&nbsp;
+&nbsp;+ On trouve &#39;Canada&#39; à l&#39;indice 36
+&nbsp;   2                         CANADA                 OTTAWA     9984670 km²            31499560
+&nbsp;
+&nbsp;+ On trouve &#39;France&#39; à l&#39;indice 64
+&nbsp;   5                         FRANCE              MARSEILLE      543964 km²            61387038
+&nbsp;
+&nbsp;+ On trouve &#39;Japon&#39; à l&#39;indice 93
+&nbsp;   3                          JAPON                  TOKYO      377835 km²            13207635
+&nbsp;
+&nbsp;+ On trouve &#39;Mexique&#39; à l&#39;indice 118
+&nbsp;   2                        MEXIQUE                 MEXICO     1972550 km²           103400165
+&nbsp;
+&nbsp;+ Creation du Fichier Oceanie-2.txt
+&nbsp;+ Ecriture en cours...
+&nbsp;+ Fin d&#39;ecriture
+&nbsp;
+&nbsp;
+&nbsp;+ Creation du Fichier Asie.txt
+&nbsp;+ Ecriture en cours...
+&nbsp;+ Fin d&#39;ecriture  */
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        var msie = false, msie9 = false;
+        /*@cc_on
+          msie = true;
+          @if (@_jscript_version >= 9)
+            msie9 = true;
+          @end
+        @*/
+
+        if (!msie || msie && msie9) {
+          hljs.highlightAll()
+          hljs.initLineNumbersOnLoad();
+        }
+    })();
+</script>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2025-05-30 13:31</div>
+</div>
+</body>
+</html>

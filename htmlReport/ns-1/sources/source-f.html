@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Coverage Report > Tableaux</title>
+    <style type="text/css">
+        @import "../../css/coverage.css";
+        @import "../../css/idea.min.css";
+    </style>
+    <script type="text/javascript" src="../../js/highlight.min.js"></script>
+    <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+    <div class="breadCrumbs">
+        Current scope: <a href="../../../index.html">all classes</a>
+        <span class="separator">|</span>
+        <a href="../index.html">io.github.lyes_sefiane</a>
+    </div>
+
+    <h1>Coverage Summary for Class: Tableaux (io.github.lyes_sefiane)</h1>
+
+    <table class="coverageStats">
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Class, %
+            </th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Branch, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">Tableaux</td>
+            <td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+                <span class="absValue">
+    (1/1)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    60%
+  </span>
+                <span class="absValue">
+    (6/10)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    64.7%
+  </span>
+                <span class="absValue">
+    (22/34)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    49.3%
+  </span>
+                <span class="absValue">
+    (35/71)
+  </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package io.github.lyes_sefiane;
+&nbsp;
+&nbsp;import org.apache.logging.log4j.LogManager;
+&nbsp;import org.apache.logging.log4j.Logger;
+&nbsp;
+&nbsp;/**
+&nbsp; * @course : IFT 1170 Java Programming and Applications
+&nbsp; * @university : University of Montreal
+&nbsp; * @teacher : Van Nguyen Le
+&nbsp; * @email : van.nguyen.le@umontreal.ca
+&nbsp; * @student : Sefiane, Lyes
+&nbsp; * @matricule : 20090833
+&nbsp; * @email : lyes.sefiane@umontreal.ca
+&nbsp; * @email : lyes.sefiane@gmail.com
+&nbsp; * @date : 2017-04-19
+&nbsp; */
+<b class="nc">&nbsp;public class Tableaux {</b>
+&nbsp;
+<b class="fc">&nbsp;    private static final Logger logger = LogManager.getLogger(Tableaux.class);</b>
+&nbsp;
+&nbsp;    static int nombre(char statutVoulu, char[] statut, int nbPers) {
+<b class="fc">&nbsp;        int n = 0;</b>
+<b class="fc">&nbsp;        for (int i = 0; i &lt; nbPers; i++)</b>
+<b class="fc">&nbsp;            if (statut[i] == statutVoulu)</b>
+<b class="fc">&nbsp;                n++;</b>
+<b class="fc">&nbsp;        return n;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    static void afficher(char[] statut, double[] taille, double[] poids, int nbPers, String mess) {
+<b class="nc">&nbsp;        logger.info(&quot;Contenu des 3 tableaux {} :&quot;, mess);</b>
+<b class="nc">&nbsp;        logger.info(&quot;  indice taille   poids  statut&quot;);</b>
+<b class="nc">&nbsp;        for (int i = 0; i &lt; nbPers; i++) {</b>
+<b class="nc">&nbsp;            logger.info(&quot;{} {} {}&quot;, i, taille[i], poids[i]);</b>
+<b class="nc">&nbsp;            switch (statut[i]) {</b>
+&nbsp;                case &#39;M&#39;:
+<b class="nc">&nbsp;                    logger.info(&quot;  marie&quot;);</b>
+&nbsp;                    break;
+&nbsp;                case &#39;C&#39;:
+<b class="nc">&nbsp;                    logger.info(&quot;  celibataire&quot;);</b>
+&nbsp;                    break;
+&nbsp;                case &#39;D&#39;:
+<b class="nc">&nbsp;                    logger.info(&quot;  divorce&quot;);</b>
+&nbsp;                    break;
+&nbsp;                case &#39;S&#39;:
+<b class="nc">&nbsp;                    logger.info(&quot;  separe&quot;);</b>
+&nbsp;                    break;
+&nbsp;                case &#39;V&#39;:
+<b class="nc">&nbsp;                    logger.info(&quot;  veuf&quot;);</b>
+&nbsp;                    break;
+&nbsp;                case &#39;A&#39;:
+<b class="nc">&nbsp;                    logger.info(&quot;  autre&quot;);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    static int nbFois(double[] tab, int nbElem, double borne) {
+<b class="fc">&nbsp;        int n = 0;</b>
+<b class="fc">&nbsp;        for (int i = 0; i &lt; nbElem; i++)</b>
+<b class="fc">&nbsp;            if (tab[i] &gt; borne)</b>
+<b class="fc">&nbsp;                n++;</b>
+<b class="fc">&nbsp;        return n;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    static double moyenne(double[] tableau, int nbElem) {
+<b class="fc">&nbsp;        double somme = 0.0;</b>
+<b class="fc">&nbsp;        for (int i = 0; i &lt; nbElem; i++)</b>
+<b class="fc">&nbsp;            somme += tableau[i];</b>
+&nbsp;
+<b class="fc">&nbsp;        return somme / nbElem;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    static double maxi(double[] tableau, int nbElem) {
+<b class="fc">&nbsp;        double plusGrand = Double.MIN_VALUE;</b>
+<b class="fc">&nbsp;        for (int i = 0; i &lt; nbElem; i++)</b>
+<b class="fc">&nbsp;            if (tableau[i] &gt; plusGrand)</b>
+<b class="fc">&nbsp;                plusGrand = tableau[i];</b>
+<b class="fc">&nbsp;        return plusGrand;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    static void afficher2(char statutVoulu, char[] statut, double[] taille, double[] poids, int nbPers) {
+<b class="nc">&nbsp;        int k = 0;</b>
+<b class="nc">&nbsp;        logger.info(&quot;Contenu des 3 tableaux pour le statut voulu : {}&quot;, statutVoulu);</b>
+<b class="nc">&nbsp;        logger.info(&quot;   rang  statut  taille   poids  &quot;);</b>
+<b class="nc">&nbsp;        for (int i = 0; i &lt; nbPers; i++) {</b>
+<b class="nc">&nbsp;            if (statut[i] == statutVoulu) {</b>
+<b class="nc">&nbsp;                k++;</b>
+<b class="nc">&nbsp;                logger.info(&quot;{}) {} {} {}&quot;, k, statut[i], taille[i], poids[i]);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    static void trier(char[] statut, double[] taille, double[] poids, int nbPers) {
+&nbsp;
+<b class="fc">&nbsp;        for (int i = 0; i &lt; nbPers - 1; i++) {</b>
+<b class="fc">&nbsp;            int indMin = i;</b>
+<b class="fc">&nbsp;            for (int j = i + 1; j &lt; nbPers; j++)</b>
+<b class="fc">&nbsp;                if (taille[j] &lt; taille[indMin])</b>
+<b class="fc">&nbsp;                    indMin = j;</b>
+<b class="fc">&nbsp;            if (indMin != i) {</b>
+<b class="fc">&nbsp;                char tempo = statut[i];</b>
+<b class="fc">&nbsp;                statut[i] = statut[indMin];</b>
+<b class="fc">&nbsp;                statut[indMin] = tempo;</b>
+&nbsp;
+<b class="fc">&nbsp;                double tempo2 = taille[i];</b>
+<b class="fc">&nbsp;                taille[i] = taille[indMin];</b>
+<b class="fc">&nbsp;                taille[indMin] = tempo2;</b>
+&nbsp;
+<b class="fc">&nbsp;                tempo2 = poids[i];</b>
+<b class="fc">&nbsp;                poids[i] = poids[indMin];</b>
+&nbsp;
+<b class="fc">&nbsp;                poids[indMin] = tempo2;</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        char[] statut = {&#39;M&#39;, &#39;C&#39;, &#39;D&#39;, &#39;M&#39;, &#39;S&#39;, &#39;M&#39;, &#39;A&#39;};</b>
+<b class="nc">&nbsp;        double[] taille = {1.72, 1.65, 1.59, 1.80, 1.82, 1.68, 1.75},</b>
+<b class="nc">&nbsp;                poids = {68.3, 52.1, 72.9, 70.4, 81.5, 65.4, 70.3};</b>
+<b class="nc">&nbsp;        int nbPers = taille.length;</b>
+&nbsp;
+<b class="nc">&nbsp;        afficher(statut, taille, poids, nbPers, &quot;avant le tri&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        logger.info(&quot;Le nombre de personnes mariees : {}&quot;, nombre(&#39;M&#39;, statut, nbPers));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Le nombre de personness separees : {}}&quot;, nombre(&#39;S&#39;, statut, nbPers));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Le nombre de personnes veuves : {}}&quot;, nombre(&#39;V&#39;, statut, nbPers));</b>
+<b class="nc">&nbsp;        logger.info(&quot;La taille moyenne : {} metre&quot;, moyenne(taille, nbPers));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Le poids moyen : {} kg\n&quot;, moyenne(poids, nbPers));</b>
+<b class="nc">&nbsp;        logger.info(&quot;La taille la plus grande : {} metre&quot;, maxi(taille, nbPers));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Le poids le plus lourd   : {} kg&quot;, maxi(poids, nbPers));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Le nombre de personnes dont la taille depasse 1.76 metre : {}&quot;, nbFois(taille, nbPers, 1.76));</b>
+<b class="nc">&nbsp;        logger.info(&quot;Le nombre de personnes dont le poids depasse 70.0 kg : {}&quot;, nbFois(poids, nbPers, 70.0));</b>
+&nbsp;
+<b class="nc">&nbsp;        afficher2(&#39;M&#39;, statut, taille, poids, nbPers);</b>
+&nbsp;
+<b class="nc">&nbsp;        trier(statut, taille, poids, nbPers);</b>
+&nbsp;
+<b class="nc">&nbsp;        afficher(statut, taille, poids, nbPers, &quot;après le tri selon les tailles&quot;);</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;/* Exécution:
+&nbsp;--------------------Configuration: &lt;Default&gt;--------------------
+&nbsp;Contenu des 3 tableaux avant le tri :
+&nbsp;  indice taille   poids  statut
+&nbsp;    0    1,72      68,3  marie
+&nbsp;    1    1,65      52,1  celibataire
+&nbsp;    2    1,59      72,9  divorce
+&nbsp;    3    1,80      70,4  marie
+&nbsp;    4    1,82      81,5  separe
+&nbsp;    5    1,68      65,4  marie
+&nbsp;    6    1,75      70,3  autre
+&nbsp;
+&nbsp;Le nombre de personnes mariees : 3
+&nbsp;Le nombre de personness separees : 1
+&nbsp;Le nombre de personnes veuves : 0
+&nbsp;La taille moyenne : 1,72 metre
+&nbsp;Le poids moyen : 68,7 kg
+&nbsp;La taille la plus grande : 1,82 metre
+&nbsp;Le poids le plus lourd   : 81,5 kg
+&nbsp;Le nombre de personnes dont la taille depasse 1.76 metre : 2
+&nbsp;Le nombre de personnes dont le poids depasse 70.0 kg : 4
+&nbsp;
+&nbsp;Contenu des 3 tableaux pour le statut voulu : M
+&nbsp;   rang  statut  taille   poids
+&nbsp;    1)     M     1,72      68,3
+&nbsp;    2)     M     1,80      70,4
+&nbsp;    3)     M     1,68      65,4
+&nbsp;
+&nbsp;
+&nbsp;Contenu des 3 tableaux après le tri selon les tailles :
+&nbsp;  indice taille   poids  statut
+&nbsp;    0    1,59      72,9  divorce
+&nbsp;    1    1,65      52,1  celibataire
+&nbsp;    2    1,68      65,4  marie
+&nbsp;    3    1,72      68,3  marie
+&nbsp;    4    1,75      70,3  autre
+&nbsp;    5    1,80      70,4  marie
+&nbsp;    6    1,82      81,5  separe
+&nbsp;
+&nbsp;
+&nbsp;Process completed.
+&nbsp;*/
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        var msie = false, msie9 = false;
+        /*@cc_on
+          msie = true;
+          @if (@_jscript_version >= 9)
+            msie9 = true;
+          @end
+        @*/
+
+        if (!msie || msie && msie9) {
+          hljs.highlightAll()
+          hljs.initLineNumbersOnLoad();
+        }
+    })();
+</script>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2025-05-30 13:31</div>
+</div>
+</body>
+</html>

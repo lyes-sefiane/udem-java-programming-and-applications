@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Coverage Report > Trier2</title>
+    <style type="text/css">
+        @import "../../css/coverage.css";
+        @import "../../css/idea.min.css";
+    </style>
+    <script type="text/javascript" src="../../js/highlight.min.js"></script>
+    <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+    <div class="breadCrumbs">
+        Current scope: <a href="../../../index.html">all classes</a>
+        <span class="separator">|</span>
+        <a href="../index.html">io.github.lyes_sefiane</a>
+    </div>
+
+    <h1>Coverage Summary for Class: Trier2 (io.github.lyes_sefiane)</h1>
+
+    <table class="coverageStats">
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Class, %
+            </th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Branch, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">Trier2</td>
+            <td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+                <span class="absValue">
+    (1/1)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+                <span class="absValue">
+    (3/6)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    85.7%
+  </span>
+                <span class="absValue">
+    (12/14)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    53.6%
+  </span>
+                <span class="absValue">
+    (15/28)
+  </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package io.github.lyes_sefiane;
+&nbsp;
+&nbsp;import io.github.lyes_sefiane.model.Temperature;
+&nbsp;import org.apache.logging.log4j.LogManager;
+&nbsp;import org.apache.logging.log4j.Logger;
+&nbsp;
+&nbsp;/**
+&nbsp; * @course : IFT 1170 Java Programming and Applications
+&nbsp; * @university : University of Montreal
+&nbsp; * @teacher : Van Nguyen Le
+&nbsp; * @email : van.nguyen.le@umontreal.ca
+&nbsp; * @student : Sefiane, Lyes
+&nbsp; * @matricule : 20090833
+&nbsp; * @email : lyes.sefiane@umontreal.ca
+&nbsp; * @email : lyes.sefiane@gmail.com
+&nbsp; * @date : 2017-04-19
+&nbsp; */
+<b class="nc">&nbsp;public class Trier2 {</b>
+&nbsp;
+<b class="fc">&nbsp;    private static final Logger logger = LogManager.getLogger(Trier2.class);</b>
+&nbsp;
+&nbsp;    static int mini(Temperature[] temp, int nbElem) {
+<b class="fc">&nbsp;        int k = 0;</b>
+<b class="fc">&nbsp;        for (int i = 1; i &lt; nbElem; i++)</b>
+<b class="fc">&nbsp;            if (temp[i].plusPetit(temp[k]))</b>
+<b class="fc">&nbsp;                k = i;</b>
+<b class="fc">&nbsp;        return k;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    static void afficher(Temperature[] temp, int nbJrs, String mess) {
+<b class="nc">&nbsp;        logger.info(&quot;Informations {} :&quot;, mess);</b>
+&nbsp;
+<b class="nc">&nbsp;        for (int i = 0; i &lt; nbJrs; i++) {</b>
+<b class="nc">&nbsp;            logger.info(&quot;{}) &quot;, i);</b>
+<b class="nc">&nbsp;            temp[i].afficher();</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    static void trier(Temperature[] temp, int nbJrs) {
+<b class="fc">&nbsp;        for (int i = 0; i &lt; nbJrs - 1; i++) {</b>
+<b class="fc">&nbsp;            int indMin = i;</b>
+<b class="fc">&nbsp;            for (int j = i + 1; j &lt; nbJrs; j++)</b>
+<b class="fc">&nbsp;                if (temp[j].estInferieur(temp[indMin]))</b>
+<b class="fc">&nbsp;                    indMin = j;</b>
+<b class="fc">&nbsp;            if (indMin != i) {</b>
+<b class="fc">&nbsp;                Temperature tempo = temp[i];</b>
+<b class="fc">&nbsp;                temp[i] = temp[indMin];</b>
+<b class="fc">&nbsp;                temp[indMin] = tempo;</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        Temperature[] temp = {new Temperature(&quot;Lundi&quot;, -16), new Temperature(&quot;Mardi&quot;, -14), new Temperature(&quot;Mercredi&quot;, -9),</b>
+&nbsp;                new Temperature(&quot;Jeudi&quot;, -18), new Temperature(&quot;Vendredi&quot;, -15), new Temperature(&quot;Samedi&quot;, -10),
+&nbsp;                new Temperature(&quot;Dimanche&quot;, -17)};
+&nbsp;
+<b class="nc">&nbsp;        int nbJrs = temp.length;</b>
+&nbsp;
+<b class="nc">&nbsp;        afficher(temp, nbJrs, &quot;au debut&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        int indMin = mini(temp, nbJrs);</b>
+<b class="nc">&nbsp;        logger.info(&quot;Journee avec temperature minimale : &quot;);</b>
+<b class="nc">&nbsp;        temp[indMin].afficher();</b>
+&nbsp;
+<b class="nc">&nbsp;        trier(temp, nbJrs);</b>
+<b class="nc">&nbsp;        afficher(temp, nbJrs, &quot;apres le tri selon les journees :&quot;);</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;/* Exécution:
+&nbsp;--------------------Configuration: &lt;Default&gt;--------------------
+&nbsp;Informations au debut :
+&nbsp;  0)        Lundi  avec      -16 degres Celcius
+&nbsp;  1)        Mardi  avec      -14 degres Celcius
+&nbsp;  2)     Mercredi  avec       -9 degres Celcius
+&nbsp;  3)        Jeudi  avec      -18 degres Celcius
+&nbsp;  4)     Vendredi  avec      -15 degres Celcius
+&nbsp;  5)       Samedi  avec      -10 degres Celcius
+&nbsp;  6)     Dimanche  avec      -17 degres Celcius
+&nbsp;
+&nbsp;Journee avec temperature minimale :        Jeudi  avec      -18 degres Celcius
+&nbsp;Informations apres le tri selon les journees : :
+&nbsp;  0)     Dimanche  avec      -17 degres Celcius
+&nbsp;  1)        Jeudi  avec      -18 degres Celcius
+&nbsp;  2)        Lundi  avec      -16 degres Celcius
+&nbsp;  3)        Mardi  avec      -14 degres Celcius
+&nbsp;  4)     Mercredi  avec       -9 degres Celcius
+&nbsp;  5)       Samedi  avec      -10 degres Celcius
+&nbsp;  6)     Vendredi  avec      -15 degres Celcius
+&nbsp;
+&nbsp;
+&nbsp;Process completed.
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;*/
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        var msie = false, msie9 = false;
+        /*@cc_on
+          msie = true;
+          @if (@_jscript_version >= 9)
+            msie9 = true;
+          @end
+        @*/
+
+        if (!msie || msie && msie9) {
+          hljs.highlightAll()
+          hljs.initLineNumbersOnLoad();
+        }
+    })();
+</script>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2025-05-30 13:31</div>
+</div>
+</body>
+</html>

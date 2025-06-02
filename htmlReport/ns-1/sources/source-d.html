@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Coverage Report > Personne</title>
+    <style type="text/css">
+        @import "../../css/coverage.css";
+        @import "../../css/idea.min.css";
+    </style>
+    <script type="text/javascript" src="../../js/highlight.min.js"></script>
+    <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+    <div class="breadCrumbs">
+        Current scope: <a href="../../../index.html">all classes</a>
+        <span class="separator">|</span>
+        <a href="../index.html">io.github.lyes_sefiane</a>
+    </div>
+
+    <h1>Coverage Summary for Class: Personne (io.github.lyes_sefiane)</h1>
+
+    <table class="coverageStats">
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Class, %
+            </th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Branch, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">Personne</td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/1)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/10)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/11)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/31)
+  </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package io.github.lyes_sefiane;
+&nbsp;
+&nbsp;/**
+&nbsp; * @author Lyes SEFIANE
+&nbsp; *
+&nbsp; */
+&nbsp;public class Personne {
+&nbsp;    private String naissance;
+&nbsp;    private int nbCafe;
+&nbsp;    /**
+&nbsp;     * @param nbCafe
+&nbsp;     * @param naissance
+&nbsp;     *
+&nbsp;     */
+<b class="nc">&nbsp;    public Personne(String naissance, int nbCafe) {</b>
+<b class="nc">&nbsp;        this.naissance = naissance;</b>
+<b class="nc">&nbsp;        this.nbCafe = nbCafe;</b>
+&nbsp;    }
+&nbsp;    /* -0.5 non utilisation de this */
+<b class="nc">&nbsp;    public Personne(String naissance) {</b>
+<b class="nc">&nbsp;        this.naissance = naissance;</b>
+<b class="nc">&nbsp;        nbCafe = 0;</b>
+&nbsp;    }
+&nbsp;    public String getNaissance() {
+<b class="nc">&nbsp;        return naissance;</b>
+&nbsp;    }
+&nbsp;    public void setNaissance(String naissance) {
+<b class="nc">&nbsp;        this.naissance = naissance;</b>
+&nbsp;    }
+&nbsp;    public int getNbCafe() {
+<b class="nc">&nbsp;        return nbCafe;</b>
+&nbsp;    }
+&nbsp;    public void setNbCafe(int nbCafe) {
+<b class="nc">&nbsp;        this.nbCafe = nbCafe;</b>
+&nbsp;    }
+&nbsp;    public int getRangMois(){
+<b class="nc">&nbsp;        return Integer.parseInt(naissance.substring(3,5));</b>
+&nbsp;    }
+&nbsp;    public String getNomMois(){
+&nbsp;        String nomMois;
+<b class="nc">&nbsp;        switch (getRangMois()) {</b>
+<b class="nc">&nbsp;            case 1: nomMois = &quot;janvier&quot;; break;</b>
+<b class="nc">&nbsp;            case 2: nomMois = &quot;fevrier&quot;; break;</b>
+<b class="nc">&nbsp;            case 3: nomMois = &quot;mars&quot;; break;</b>
+<b class="nc">&nbsp;            case 4: nomMois = &quot;avril&quot;; break;</b>
+<b class="nc">&nbsp;            case 5: nomMois = &quot;mai&quot;; break;</b>
+<b class="nc">&nbsp;            case 6: nomMois = &quot;juin&quot;; break;</b>
+<b class="nc">&nbsp;            case 7: nomMois = &quot;juillet&quot;; break;</b>
+<b class="nc">&nbsp;            case 8: nomMois = &quot;aout&quot;; break;</b>
+<b class="nc">&nbsp;            case 9: nomMois = &quot;septembre&quot;; break;</b>
+<b class="nc">&nbsp;            case 10: nomMois = &quot;octobre&quot;; break;</b>
+<b class="nc">&nbsp;            case 11: nomMois = &quot;novembre&quot;; break;</b>
+<b class="nc">&nbsp;            default: nomMois = &quot;decembre&quot;; break;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return nomMois;</b>
+&nbsp;    }
+&nbsp;    public void afficher(String message) {
+&nbsp;        // TODO Auto-generated method stub
+&nbsp;
+<b class="nc">&nbsp;        System.out.printf(&quot;%s est nee le %s %s %s et &quot;</b>
+&nbsp;                        + &quot;consomme %d tasse(s) de cafe \n&quot;,
+&nbsp;                message,
+<b class="nc">&nbsp;                naissance.substring(0,2),</b>
+<b class="nc">&nbsp;                getNomMois(),</b>
+<b class="nc">&nbsp;                naissance.substring(6),</b>
+<b class="nc">&nbsp;                nbCafe);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /*
+&nbsp;     * Redefinition de la méthode toString()
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString(){
+<b class="nc">&nbsp;        return String.format(&quot;&#39;%s&#39; %5d tasse(s)&quot;, naissance, nbCafe);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+    (function() {
+        var msie = false, msie9 = false;
+        /*@cc_on
+          msie = true;
+          @if (@_jscript_version >= 9)
+            msie9 = true;
+          @end
+        @*/
+
+        if (!msie || msie && msie9) {
+          hljs.highlightAll()
+          hljs.initLineNumbersOnLoad();
+        }
+    })();
+</script>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2025-05-30 13:31</div>
+</div>
+</body>
+</html>
