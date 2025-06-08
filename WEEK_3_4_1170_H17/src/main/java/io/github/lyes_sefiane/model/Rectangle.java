@@ -3,6 +3,8 @@ package io.github.lyes_sefiane.model;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Objects;
+
 /**
  * @course : IFT 1170 Java Programming and Applications
  * @university : University of Montreal
@@ -73,8 +75,22 @@ public class Rectangle {
         logger.info("  - diagonale : {}", diagonale());
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Rectangle rectangle = (Rectangle) o;
+        return this.surface() == rectangle.surface();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(longueur, largeur);
+    }
+
     public String toString() {
         return String.format("<%5.1f | %6.1f | %6.2f | %6.1f | %6.1f>", largeur, longueur, perimetre(),
                 surface(), diagonale());
     }
+
+
 }

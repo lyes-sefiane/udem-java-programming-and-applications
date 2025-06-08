@@ -23,6 +23,7 @@ public class Ex1Rectangle {
 
         logger.info("Démonstration numéro 1 : ");
 
+
         Rectangle rect1 = new Rectangle(7.8, 3.5);
         rect1.afficher("premier rectangle");
 
